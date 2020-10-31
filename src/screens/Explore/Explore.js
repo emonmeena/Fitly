@@ -1,8 +1,29 @@
-import React from 'react';
-import { Text, StyleSheet } from 'react-native'
+import React, {useState} from 'react';
+import { Button } from 'react-native';
+import { View, Text } from 'react-native';
+import { StyleSheet } from 'react-native';
+import newsAPI from '../../api/newsAPI';
 
 const Explore = () =>{
-    return <Text style={styles.textStyle}> Explore</Text>;
+
+    const [news, setNews] = useState([]);
+
+    const exploreAPI = async () =>{
+        const response = await newsAPI.get('/everything', {
+            params:{
+                q: 'health',
+                sortBy: 'popularity'
+            }
+        });
+        setNews(response.data.articles);
+    };
+
+    return (
+        <View>
+            <Button title="get news" onPress={exploreAPI} />
+            <Text style={styles.textStyle}> We found {news.length} articles </Text>
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({
