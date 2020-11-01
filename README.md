@@ -1,6 +1,6 @@
 # Fitly
 ## Prerequisite
-> Nodejs and npm
+> Nodejs,npm
 > Git
 ## Instructions to get you started
 ### Setup
