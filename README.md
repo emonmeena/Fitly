@@ -1,7 +1,6 @@
 # Fitly
 ## Prerequisite
-> Nodejs,npm
-> Git
+> Nodejs, npm and Git
 ## Instructions to get you started
 ### Setup
 1. Clone the Repo
