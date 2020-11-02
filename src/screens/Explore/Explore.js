@@ -3,6 +3,7 @@ import { View, Text } from "react-native";
 import { ScrollView } from "react-native";
 import { FlatList } from "react-native";
 import { StyleSheet } from "react-native";
+import { Searchbar } from "react-native-paper";
 import newsAPI from "../../api/newsAPI";
 import unsplashAPI from "../../api/unsplashAPI";
 import Article from "./Article";
@@ -12,18 +13,19 @@ const Explore = () => {
   const [articles, setArticles] = useState([]);
   const [collections, setCollections] = useState([]);
   const [exploreMore, setExploreMore] = useState([]);
+  const titles = ['Diet', 'Yoga', 'Fitness', 'Exercise', 'Meditation']
 
   useEffect(() => {
-    // collectionAPI();
+    collectionAPI();
     // articlesAPI();
-    // exploreMoreAPI();
+    exploreMoreAPI();
   });
 
   const collectionAPI = async () => {
     const response = await unsplashAPI.get('/search/photos', {
       params: {
-        query: 'diet',
-        per_page: 5,
+        query: 'health',
+        per_page: 4,
       },
     });
     setCollections(response.data.results)
@@ -34,6 +36,7 @@ const Explore = () => {
     const response = await newsAPI.get('/everything', {
       params: {
         q: 'exercise AND fitness AND yoga AND diet',
+        pageSize: 11,
         sortBy: 'relavancy',
       },
     });
@@ -53,14 +56,18 @@ const Explore = () => {
 
   return (
     <View style={styles.screenStyle}>
+    <View>
+      <Searchbar placeholder="Search your interest" />
+    </View>
     <ScrollView>
       <View>
         <Text style={styles.headingStyle}>Collections</Text>
         <ScrollView horizontal showsHorizontalScrollIndicator={false} >
-          {collections.map((image) => (
+          {collections.map((image, index) => (
                 <Collection
                 key={image.id}
                 urlToImage={image.urls.small}
+                title={titles[index]}
                 />
             ))}
            
@@ -87,7 +94,11 @@ const Explore = () => {
             ))}
         </ScrollView>
       </View>
+      <View>
+      <Text>d2kvv</Text>
+    </View>
     </ScrollView>
+    
     </View>
   );
 };
@@ -100,6 +111,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     padding: 10,
   },
+  collectionContainer: {
+  }
 });
 
 export default Explore;

@@ -1,12 +1,17 @@
 import React from 'react';
+import { ImageBackground } from 'react-native';
 import { Image } from 'react-native';
 import { View } from 'react-native';
 import { Text, StyleSheet } from 'react-native'
 
-const Collection = ({urlToImage}) =>{
+const Collection = ({urlToImage, title}) =>{
     return (
         <View style={styles.collectionStyle}>
-            <Image style={styles.imageStyle} source={{uri: urlToImage}} />            
+            <ImageBackground style={styles.imageStyle} imageStyle={styles.imageStyle} source={{uri: urlToImage}} > 
+            <View style={styles.child}>
+                <Text style={styles.textStyle}> {title} </Text>
+            </View>
+            </ImageBackground>
         </View>
     )
 }
@@ -24,13 +29,21 @@ const styles = StyleSheet.create({
         shadowRadius: 10,
         elevation: 4,
     },
-    textStyle: {
-        fontSize: 30
-    },
     imageStyle: {
-        height: 200,
-        borderRadius: 7
-    }
+        flex: 1,
+        borderRadius: 7,
+    },
+    child: {
+        flexDirection: 'column-reverse',
+        borderRadius: 7,
+        backgroundColor: 'rgba(0,0,0,0.2)',
+        height: 200
+    },
+    textStyle: {
+        fontSize: 18,
+        color: 'white'
+    },
+    
 });
 
 export default Collection;

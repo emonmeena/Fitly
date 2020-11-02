@@ -3,7 +3,7 @@ import axios from 'axios'
 export default axios.create({
     baseURL: 'https://newsapi.org/v2',
     headers: {
-        Authorization: 'Bearer 85fa4180b07246e09f2320f602f78d0a'
+        Authorization: 'Bearer fe63ff35aff740f1918265edba800dea'
     }
 });
 
