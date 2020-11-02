@@ -13,4 +13,4 @@
 7. push the commit 
 ### Contributors
 Mayank Meena <br/>
-Anikait Agrawal <br/>
+Anikait Agrawal
