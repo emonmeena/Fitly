@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text } from "react-native";
-import { ScrollView } from "react-native";
-import { FlatList } from "react-native";
-import { StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ScrollView }  from "react-native";
 import { Searchbar } from "react-native-paper";
 import newsAPI from "../../api/newsAPI";
 import unsplashAPI from "../../api/unsplashAPI";
@@ -16,9 +13,9 @@ const Explore = () => {
   const titles = ['Diet', 'Yoga', 'Fitness', 'Exercise', 'Meditation']
 
   useEffect(() => {
-    collectionAPI();
+    // collectionAPI();
     // articlesAPI();
-    exploreMoreAPI();
+    // exploreMoreAPI();
   });
 
   const collectionAPI = async () => {
@@ -94,9 +91,6 @@ const Explore = () => {
             ))}
         </ScrollView>
       </View>
-      <View>
-      <Text>d2kvv</Text>
-    </View>
     </ScrollView>
     
     </View>
