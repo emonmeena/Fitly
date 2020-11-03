@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import ConsultDoctor from './ConsultDoctor/ConsultDoctor';
 import Profile from './Profile/Profile';
 import FitnessTracker from './FitnessTracker/FitnessTracker';
-import Explore from './Explore/Explore';
+import Explore from './Explore/index';
 import { NavigationContainer } from "@react-navigation/native";
 
 const Tab = createBottomTabNavigator();
