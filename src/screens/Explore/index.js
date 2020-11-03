@@ -13,9 +13,9 @@ const Explore = () => {
   const titles = ['Diet', 'Yoga', 'Fitness', 'Exercise', 'Meditation']
 
   useEffect(() => {
-    // collectionAPI();
-    // articlesAPI();
-    // exploreMoreAPI();
+    collectionAPI();
+    articlesAPI();
+    exploreMoreAPI();
   });
 
   const collectionAPI = async () => {
