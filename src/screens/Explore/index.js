@@ -62,6 +62,7 @@ const Explore = () => {
         <ScrollView horizontal showsHorizontalScrollIndicator={false} >
           {collections.map((image, index) => (
                 <Collection
+                leftMargin={index==0?10:0}
                 key={image.id}
                 urlToImage={image.urls.small}
                 title={titles[index]}
