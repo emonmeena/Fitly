@@ -4,14 +4,16 @@ import { Image } from 'react-native';
 import { View } from 'react-native';
 import { Text, StyleSheet } from 'react-native'
 
-const Collection = ({urlToImage, title}) =>{
+const Collection = ({urlToImage, title, leftMargin}) =>{
     return (
+            <View style={{marginLeft: leftMargin}} >
         <View style={styles.collectionStyle}>
             <ImageBackground style={styles.imageStyle} imageStyle={styles.imageStyle} source={{uri: urlToImage}} > 
             <View style={styles.child}>
                 <Text style={styles.textStyle}> {title} </Text>
             </View>
             </ImageBackground>
+            </View>
         </View>
     )
 }
@@ -22,7 +24,7 @@ const styles = StyleSheet.create({
         height: 200,
         width: 170,
         borderRadius: 7,
-        marginLeft: 10,
+        marginRight: 10,
         marginBottom: 10,
         shadowColor: "#000",
         shadowOpacity: 0.7,
@@ -41,7 +43,8 @@ const styles = StyleSheet.create({
     },
     textStyle: {
         fontSize: 18,
-        color: 'white'
+        color: 'white',
+        padding: 7,
     },
     
 });
