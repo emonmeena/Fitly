@@ -51,11 +51,11 @@ const Explore = () => {
 
   return (
     <View style={styles.screenStyle}>
-      <View style={styles.searchBoxContainer}>
+      {/* <View style={styles.searchBoxContainer}>
         <Searchbar style={styles.searchBox} placeholder="Search your interest" />
-      </View>
+      </View> */}
       <ScrollView>
-        <View>
+        {/* <View>
           <Text style={styles.headingStyle}>Article Collections</Text>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             {articleCollections.map((article, index) => (
@@ -67,7 +67,7 @@ const Explore = () => {
               />
             ))}
           </ScrollView>
-        </View>
+        </View> */}
         <View>
           <Text style={styles.headingStyle}></Text>
           {articles.map((article, index) => (
