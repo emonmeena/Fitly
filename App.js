@@ -13,7 +13,7 @@ const navigator = createStackNavigator(
   {
     initialRouteName: "Home",
     defaultNavigationOptions: {
-      title: "Fitly v0.1"
+      title: "Fitly"
     }
   }
 );

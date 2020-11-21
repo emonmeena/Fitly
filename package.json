@@ -1,5 +1,5 @@
 {
-  "main": "node_modules/expo/AppEntry.js",
+  "main": "./node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
@@ -15,22 +15,29 @@
     "@react-navigation/native": "^5.8.2",
     "@react-navigation/stack": "^5.11.1",
     "axios": "^0.21.0",
+    "dependencies": "^0.0.1",
     "expo": "~36.0.0",
+    "install": "^0.13.0",
+    "peer": "^0.5.3",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
+    "react-native-chart-kit": "^6.7.0",
     "react-native-gesture-handler": "~1.5.0",
+    "react-native-ionicons": "^4.6.5",
     "react-native-paper": "^4.3.0",
     "react-native-reanimated": "~1.4.0",
     "react-native-safe-area-context": "0.6.0",
     "react-native-screens": "2.0.0-alpha.12",
+    "react-native-spotify": "^2.0.3",
+    "react-native-svg": "9.13.3",
     "react-native-vector-icons": "^7.1.0",
     "react-navigation": "^4.1.0",
     "react-navigation-stack": "^2.0.16"
   },
   "devDependencies": {
-    "babel-preset-expo": "~8.0.0",
-    "@babel/core": "^7.0.0"
+    "@babel/core": "^7.0.0",
+    "babel-preset-expo": "~8.0.0"
   },
   "private": true
 }
