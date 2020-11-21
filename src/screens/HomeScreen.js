@@ -2,7 +2,7 @@ import React from "react";
 import { Ionicons } from '@expo/vector-icons';
 import { Text, StyleSheet } from "react-native";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import ConsultDoctor from './ConsultDoctor/ConsultDoctor';
+import LifeStyle from './LifeStyle/LifeStyle';
 import Profile from './Profile/Profile';
 import FitnessTracker from './FitnessTracker/FitnessTracker';
 import Explore from './Explore/Explore';
@@ -45,7 +45,7 @@ const HomeScreen = () => {
           }
         }}>
           <Tab.Screen name="Explore" component={Explore} />
-          <Tab.Screen name="LifeStyle" component={ConsultDoctor} />
+          <Tab.Screen name="LifeStyle" component={LifeStyle} />
           <Tab.Screen name="Fitness" component={FitnessTracker} />
           <Tab.Screen name="Profile" component={Profile} />
          </Tab.Navigator>

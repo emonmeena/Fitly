@@ -1,17 +1,17 @@
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import HomeScreen from "./src/screens/HomeScreen";
-import ComponentsScreen from './src/screens/ComponentsScreen';
+import Login from './src/screens/Login';
 
 
 
 const navigator = createStackNavigator(
   {
     Home: HomeScreen,
-    Components: ComponentsScreen,
+    Login: Login,
   },
   {
-    initialRouteName: "Home",
+    initialRouteName: "Login",
     defaultNavigationOptions: {
       title: "Fitly"
     }
