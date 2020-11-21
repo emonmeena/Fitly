@@ -1,5 +1,6 @@
 import React from "react";
 import { View } from "react-native";
+import { ScrollView } from "react-native";
 import { Text, StyleSheet } from "react-native";
 import { Dimensions } from "react-native";
 const screenWidth = Dimensions.get("window").width;
@@ -16,30 +17,53 @@ import {
 const FitnessTracker = () => {
   return (
     <View style={styles.FitnessTrackerMainScreen}>
-      <View style={styles.bmiSection}>
-        <Text style={styles.title}>Current BMI</Text>
-        <View style={styles.bmiContainer}>
-          <Text style={styles.numberData}>20</Text>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={styles.bmiSection}>
+          <Text style={styles.title}>Current BMI</Text>
+          <View style={styles.bmiContainer}>
+            <Text style={styles.numberData}>20</Text>
+          </View>
         </View>
-      </View>
-      <View>
-        <Text style={styles.normalHeading}>Your Fitness Progress</Text>
-        <Text>Bezier Line Chart</Text>
-        <LineChart
-          data={data}
-          width={screenWidth}
-          height={260}
-          verticalLabelRotation={0}
-          chartConfig={chartConfig}
-          bezier
-        />
-      </View>
-      <View>
+        <Text style={styles.normalHeading}>BMI Progress</Text>
+        <View style={styles.progressContainer}>
+          <LineChart
+            data={data}
+            width={screenWidth}
+            height={260}
+            verticalLabelRotation={0}
+            chartConfig={chartConfig}
+            // bezier
+          />
+        </View>
         <Text style={styles.normalHeading}>Health Stats</Text>
-        <View>
-
+        <View style={styles.healthStatsContainer}>
+          <View style={styles.healthStatGreen}>
+            <Text style={styles.numberData}>65 m</Text>
+            <Text style={styles.healthStatTitle}>Height</Text>
+          </View>
+          <View style={styles.healthStatBlue}>
+            <Text style={styles.numberData}>65 Kgs</Text>
+            <Text style={styles.healthStatTitle}>Weight</Text>
+          </View>
+          <View style={styles.healthStatRed}>
+            <Text style={styles.numberData}>24.12</Text>
+            <Text style={styles.healthStatTitle}>BMI</Text>
+          </View>
         </View>
-      </View>
+        <View style={styles.bmiInfoContainer}>
+          <Text style={styles.normalHeadingWhite}>
+            What Your BMI got to say?
+          </Text>
+          <Text style={styles.normalText}>
+            {" "}
+            Age-related muscle loss is a natural part of getting older. But
+            muscle loss can occur faster after an injury, illness, or any
+            prolonged period of inactivity, leading to muscle atrophy. The
+            consequences can mean overall weakness, poor balance, and even
+            frailty.
+          </Text>
+        </View>
+      </ScrollView>
     </View>
   );
 };
@@ -50,21 +74,20 @@ const data = {
   datasets: [
     {
       // data: [20, 45, 28, 80, 99, 43, 23, 65, 34, 56, 78, 100],
-      data: [20, 45, 28, 33, 43, 49],
-      color: (opacity = 1) => `rgba(14, 65, 244, ${opacity})`, // optional
+      data: [17.3, 20.04, 21, 22, 20.14, 21],
+      color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`, // optional
       strokeWidth: 3, // optional
     },
   ],
   // legend: ["BMI Progress"] // optional
 };
 
-
 const chartConfig = {
   backgroundGradientFrom: "#1E2923",
   backgroundGradientFromOpacity: 0,
   backgroundGradientTo: "#08130D",
   backgroundGradientToOpacity: 0,
-  color: (opacity = 1) => `rgba(12, 56, 100, ${opacity})`,
+  color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
   strokeWidth: 2, // optional, default 3
   barPercentage: 120,
   useShadowColorFromDataset: true, // optional
@@ -79,11 +102,12 @@ const styles = StyleSheet.create({
   bmiSection: {
     textAlign: "center",
     alignContent: "center",
+    // backgroundColor: "#ff005a",
   },
   title: {
     fontSize: 30,
     textAlign: "center",
-    color: "#1e90ff",
+    color: "white",
   },
   numberData: {
     fontSize: 20,
@@ -93,17 +117,77 @@ const styles = StyleSheet.create({
   bmiContainer: {
     // borderColor: '',
     // borderWidth: 1,
-    backgroundColor: "#1e90ff",
+    // backgroundColor: "",
     padding: 5,
     borderRadius: 10,
     marginVertical: 20,
     width: 70,
     alignSelf: "center",
   },
+  progressContainer: {
+    backgroundColor: "#1e90ff",
+    borderRadius: 20,
+    borderWidth: 2,
+    borderColor: "white",
+    // marginHorizontal: 10,
+    paddingVertical: 10,
+  },
   normalHeading: {
-    fontSize: 20,
-    color: "#ff008a",
+    fontSize: 24,
+    paddingVertical: 10,
+    paddingHorizontal: 5,
+    color: "#585858",
     // fontWeight: 'bold',
+  },
+  normalHeadingWhite: {
+    fontSize: 24,
+    color: "white",
+  },
+  healthStatsContainer: {
+    flex: 1,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    // display: 'flex',
+    justifyContent: "space-between",
+  },
+  healthStatGreen: {
+    paddingVertical: 20,
+    backgroundColor: "#00c9bd",
+    height: 100,
+    borderRadius: 10,
+    width: 120,
+    marginBottom: 10,
+  },
+  healthStatBlue: {
+    paddingVertical: 20,
+    backgroundColor: "#179be6",
+    height: 100,
+    borderRadius: 10,
+    width: 120,
+    marginBottom: 10,
+  },
+  healthStatRed: {
+    paddingVertical: 20,
+    backgroundColor: "#e05252",
+    height: 100,
+    borderRadius: 10,
+    width: 120,
+    marginBottom: 10,
+  },
+  healthStatTitle: {
+    fontSize: 25,
+    fontWeight: "bold",
+    color: "white",
+    alignSelf: "center",
+  },
+  bmiInfoContainer: {
+    backgroundColor: "#ec9a3a",
+    borderRadius: 10,
+    padding: 10,
+  },
+  normalText: {
+    fontSize: 16,
+    color: "#DCDCDC",
   },
 });
 

@@ -42,7 +42,7 @@ class Profile extends Component {
           }} >Fitly Score:10</Text  >
           <View>
           <Button
-            onPress={''}
+            // onPress={''}
             title="Edit Profile"
           />
           </View>

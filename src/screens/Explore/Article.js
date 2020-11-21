@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     articleStyle: {
         backgroundColor: 'white',
         borderRadius: 7,
-        margin: 10,
+        marginVertical: 10,
         shadowColor: "#000",
         shadowOpacity: 0.7,
         shadowRadius: 7,

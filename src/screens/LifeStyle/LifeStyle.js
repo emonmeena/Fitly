@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, StyleSheet } from 'react-native'
 
 const LifeStyle = () =>{
-    return <Text style={styles.textStyle}>ConsultDoctor</Text>;
+    return <Text style={styles.textStyle}>Life Style</Text>;
 }
 
 const styles = StyleSheet.create({

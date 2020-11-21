@@ -35,9 +35,9 @@ const HomeScreen = () => {
        })
        }
         tabBarOptions={{
-          activeTintColor: 'white',
+          activeTintColor: '#ff005a',
           inactiveTintColor: '#B8B8B8',
-          activeBackgroundColor:'#1e90ff',
+          // activeBackgroundColor:'#1e90ff',
           inactiveBackgroundColor:'white',
           tabStyle:{alignItems:'center',
           justifyContent:'center',
@@ -56,7 +56,7 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   text: {
     fontSize: 30
-  }
+  },
 });
 
 export default HomeScreen;
