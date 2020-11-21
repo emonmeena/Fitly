@@ -6,14 +6,14 @@ import { Text, StyleSheet } from 'react-native'
 
 const Collection = ({urlToImage, title, leftMargin}) =>{
     return (
-            <View style={{marginLeft: leftMargin}} >
+        <View style={{marginLeft: leftMargin}} >
         <View style={styles.collectionStyle}>
             <ImageBackground style={styles.imageStyle} imageStyle={styles.imageStyle} source={{uri: urlToImage}} > 
             <View style={styles.child}>
                 <Text style={styles.textStyle}> {title} </Text>
             </View>
             </ImageBackground>
-            </View>
+        </View>
         </View>
     )
 }
