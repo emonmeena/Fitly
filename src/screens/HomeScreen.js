@@ -2,7 +2,7 @@ import React from "react";
 import { Ionicons } from '@expo/vector-icons';
 import { Text, StyleSheet } from "react-native";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import ConsultDoctor from './ConsultDoctor/ConsultDoctor';
+import LifeStyle from './LifeStyle/LifeStyle';
 import Profile from './Profile/Profile';
 import FitnessTracker from './FitnessTracker/FitnessTracker';
 import Explore from './Explore/Explore';
@@ -35,9 +35,9 @@ const HomeScreen = () => {
        })
        }
         tabBarOptions={{
-          activeTintColor: 'white',
+          activeTintColor: '#ff005a',
           inactiveTintColor: '#B8B8B8',
-          activeBackgroundColor:'#1e90ff',
+          // activeBackgroundColor:'#1e90ff',
           inactiveBackgroundColor:'white',
           tabStyle:{alignItems:'center',
           justifyContent:'center',
@@ -45,7 +45,7 @@ const HomeScreen = () => {
           }
         }}>
           <Tab.Screen name="Explore" component={Explore} />
-          <Tab.Screen name="LifeStyle" component={ConsultDoctor} />
+          <Tab.Screen name="LifeStyle" component={LifeStyle} />
           <Tab.Screen name="Fitness" component={FitnessTracker} />
           <Tab.Screen name="Profile" component={Profile} />
          </Tab.Navigator>
@@ -56,7 +56,7 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   text: {
     fontSize: 30
-  }
+  },
 });
 
 export default HomeScreen;

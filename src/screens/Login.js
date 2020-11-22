@@ -1,8 +1,8 @@
 import React from 'react';
 import { Text, StyleSheet } from 'react-native'
 
-const ConsultDoctor = () =>{
-    return <Text style={styles.textStyle}>ConsultDoctor</Text>;
+const Login = () =>{
+    return <Text style={styles.textStyle}> Hii there this is First Component </Text>;
 }
 
 const styles = StyleSheet.create({
@@ -11,4 +11,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default ConsultDoctor;
+export default Login;
