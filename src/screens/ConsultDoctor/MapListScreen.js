@@ -83,6 +83,7 @@ class MapListScreen  extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: 50,
       flex: 1,
       backgroundColor: '#fff',
       padding: 10,
@@ -99,6 +100,7 @@ const styles = StyleSheet.create({
     fontSize: 16
   },
   loading: {
+    marginTop: 50,
     flex: 1,
     textAlign: 'center',
     fontSize: 40

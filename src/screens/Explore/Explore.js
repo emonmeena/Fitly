@@ -2,11 +2,24 @@ import React, { useState, useEffect } from "react";
 import { TouchableOpacity } from "react-native";
 import { FlatList } from "react-native";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { createStackNavigator } from "@react-navigation/stack";
 import newsAPI from "../../api/newsAPI";
 import unsplashAPI from "../../api/unsplashAPI";
 import Article from "./Article";
+import ReadArticle from "./ReadArticle";
 
-const Explore = ({ navigation }) => {
+const ExploreStack = createStackNavigator();
+
+const Explore = () => {
+  return (
+    <ExploreStack.Navigator>
+      <ExploreStack.Screen name="Explore" component={ExploreScreen} />
+      <ExploreStack.Screen name="ReadArticle" component={ReadArticle} />
+    </ExploreStack.Navigator>
+  );
+};
+
+const ExploreScreen = ({ navigation }) => {
   const [articles, setArticles] = useState([]);
   const [collections, setCollections] = useState([]);
   const [exploreMore, setExploreMore] = useState([]);
@@ -97,7 +110,17 @@ const Explore = ({ navigation }) => {
         keyExtractor={(item) => item.title}
         data={articles}
         renderItem={(itemData) => (
-          <TouchableOpacity onPress={() => navigation.navigate("")}>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate("ReadArticle", {
+                urlToImage: itemData.item.urlToImage,
+                content: itemData.item.content,
+                title: itemData.item.title,
+                author: itemData.item.author,
+                description: itemData.item.description
+              })
+            }
+          >
             <Article
               title={itemData.item.title}
               urlToImage={itemData.item.urlToImage}
