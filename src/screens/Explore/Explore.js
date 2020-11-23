@@ -2,11 +2,9 @@ import React, { useState, useEffect } from "react";
 import { TouchableOpacity } from "react-native";
 import { FlatList } from "react-native";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
-import { Searchbar } from "react-native-paper";
 import newsAPI from "../../api/newsAPI";
 import unsplashAPI from "../../api/unsplashAPI";
 import Article from "./Article";
-import Collection from "./Collection";
 
 const Explore = ({ navigation }) => {
   const [articles, setArticles] = useState([]);
