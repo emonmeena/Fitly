@@ -3,7 +3,7 @@ import { createStackNavigator } from "react-navigation-stack";
 import HomeScreen from "./src/screens/HomeScreen/HomeScreen";
 import Login from "./src/screens/Authentication/Login";
 import Register from "./src/screens/Authentication/Register";
-
+import * as firebase from 'firebase'
 
 const firebaseConfig = {
   apiKey: "AIzaSyDvZAiKdg4NJOqxyMqdbyS8jWdCABEoS5o",
@@ -15,6 +15,8 @@ const firebaseConfig = {
   appId: "1:716509400246:web:a5e976a2e13ce7e75eaa17",
   measurementId: "G-B35LEB5T6Y"
 };
+
+firebase.initializeApp(firebaseConfig);
 
 const switchNavigator = createSwitchNavigator({
   loginFlow: createStackNavigator({

@@ -2,15 +2,18 @@ import React from "react";
 import { TextInput, StyleSheet, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { Input, Button, Text, SocialIcon } from "react-native-elements";
-
+import * as firebase from 'firebase'
 
 
 function Login({ navigation }) {
   const [Email, onChangeEmail] = React.useState();
   const [Password, onChangePassword] = React.useState();
   
-  const SignUpUser =()=>{
-    
+  const SignInUser =()=>{
+    firebase.auth().signInWithEmailAndPassword(Email,Password).then(user => {
+      if(user) navigation.navigate('mainFlow')
+    })
+    // console.log(Email)
   }
 
 
@@ -32,7 +35,7 @@ function Login({ navigation }) {
             value={Password}
             placeholder="Enter Your Password"
           />
-          <Button title="SignIn Now" buttonStyle={styles.signinButton} onPress={()=> SignUpUser()} />
+          <Button title="SignIn Now" buttonStyle={styles.signinButton} onPress={()=> SignInUser()} />
           <Button
             title="SignIn with Google"
             type="outline"
@@ -50,14 +53,14 @@ function Login({ navigation }) {
               navigation.navigate("SignUp");
             }}
           />
-          <Button
+          {/* <Button
             title="Skip For Now"
             type="solid"
             // buttonStyle={styles.signupButton}
             onPress={() => {
               navigation.navigate("mainFlow");
             }}
-          />
+          /> */}
         </View>
       </View>
     </>
