@@ -69,6 +69,14 @@ class MapListScreen  extends React.Component {
             }}
             title={"Current Location"}
           />
+
+          <MapView.Marker
+            coordinate={{
+              latitude: this.props.route.params.lat,
+              longitude: this.props.route.params.lon,
+            }}
+            title={this.props.route.params.name}
+          />
           
         </MapView>
       </View>
@@ -83,7 +91,6 @@ class MapListScreen  extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 50,
       flex: 1,
       backgroundColor: '#fff',
       padding: 10,
@@ -100,7 +107,6 @@ const styles = StyleSheet.create({
     fontSize: 16
   },
   loading: {
-    marginTop: 50,
     flex: 1,
     textAlign: 'center',
     fontSize: 40

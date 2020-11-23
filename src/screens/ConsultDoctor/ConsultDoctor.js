@@ -124,35 +124,34 @@ class ConsultDoctorScreen extends React.Component {
       this.setState({ region: region, load: true });
       return;
     }
-
-    /*fetch('https://api.tomtom.com/search/2/categorySearch/hospitals.json?lat='+ region.latitude + '&lon='+ region.longitude +'&radius=5000&categories=general&key=vB88eiAS58RJuYOx2w2yUbElYFdsCS12')
-        .then ( (response) => response.json() )
-        .then ( (responseJson) => {
-          this.setState({
-            isLoading: false,
-            DataSource: responseJson.results,
-          })
-        })
-
-        .catch((error) => {
-          console.log(error)
-        });*/
   };
 
   _renderItem = ({ item, index }) => {
     return (
-      <TouchableOpacity onPress={() => this.props.navigation.navigate("Map")}>
+      <TouchableOpacity
+        onPress={() =>
+          this.props.navigation.navigate("Map", {
+            lat: item.position.lat,
+            lon: item.position.lon,
+            name: item.poi.name,
+            des: item.poi.categories,
+          })
+        }
+      >
         <View
           style={{
             height: 180,
             marginBottom: 50,
-            borderColor: "green",
+            marginHorizontal: 10,
+            backgroundColor: "green",
             borderRadius: 5,
           }}
         >
-          <Text style={styles.item}>{item.poi.name}</Text>
-          <Text style={styles.item}>{item.poi.categories}</Text>
-          <Text style={styles.item}>{item.address.freeformAddress}</Text>
+          <Text style={styles.name}>{item.poi.name}</Text>
+          <Text style={styles.cat}>Speciality: {item.poi.categories}</Text>
+          <Text style={styles.add}>
+            Address: {item.address.freeformAddress}
+          </Text>
         </View>
       </TouchableOpacity>
     );
@@ -162,10 +161,7 @@ class ConsultDoctorScreen extends React.Component {
     let { load, isLoading, DataSource, region } = this.state;
     if (!isLoading && load) {
       return (
-        <View style={styles.marginTop}>
-          <Text style={styles.pos}>
-            Current Location: {region.latitude}, {region.longitude}
-          </Text>
+        <View style={{ marginBottom: 20 }}>
           <Text style={styles.title}>Hospitals Near You</Text>
 
           <FlatList
@@ -178,7 +174,7 @@ class ConsultDoctorScreen extends React.Component {
       );
     } else {
       return (
-        <View style={styles.marginTop}>
+        <View>
           <Button title="Get Nearby Hospitals" onPress={this._getAPI} />
           <Text style={styles.loading}>Loading Contents...</Text>
         </View>
@@ -217,15 +213,26 @@ const styles = StyleSheet.create({
     fontSize: 40,
   },
   item: {
-    padding: 5,
+    padding: 7,
     fontSize: 25,
     borderBottomWidth: 1,
     borderBottomColor: "#eee",
   },
-  list: {},
-  marginTop:{
-    // marginTop: 50,
-  }
+  list: {
+    borderColor: "red",
+  },
+  name: {
+    padding: 7,
+    fontSize: 25,
+  },
+  cat: {
+    padding: 7,
+    fontSize: 20,
+  },
+  add: {
+    padding: 7,
+    fontSize: 18,
+  },
 });
 
 export default ConsultDoctor;
