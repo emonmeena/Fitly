@@ -7,11 +7,11 @@ import {
   TextInput,
 } from "react-native";
 
-function EditProfile({ navigation }) {
-  const [Name, onChangeName] = React.useState("Name");
-  const [Age, changeAge] = React.useState("10");
-  const [Email, onChangeEmail] = React.useState(" Your Email Id");
-  const [Password, onChangePassword] = React.useState("baaaa");
+function EditProfile() {
+  const [Name, onChangeName] = React.useState();
+  const [Age, changeAge] = React.useState();
+  const [Email, onChangeEmail] = React.useState();
+  const [Password, onChangePassword] = React.useState();
   return (
     <View
       style={{
