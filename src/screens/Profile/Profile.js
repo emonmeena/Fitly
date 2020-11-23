@@ -20,30 +20,30 @@ function ProfileStack() {
       <HomeStack.Screen
         name="Profile"
         component={Profile}
-        options={{
-          headerStyle: {
-            backgroundColor: "#ff005a",
-          },
-          headerTintColor: "white",
-          headerTitleStyle: {
-            fontWeight: "600",
-            fontSize: 40,
-          },
-        }}
+        // options={{
+        //   headerStyle: {
+        //     backgroundColor: "#ff005a",
+        //   },
+        //   headerTintColor: "white",
+        //   headerTitleStyle: {
+        //     fontWeight: "600",
+        //     fontSize: 40,
+        //   },
+        // }}
       />
       <HomeStack.Screen
         name="EditProfile"
         component={EditProfile}
-        options={{
-          headerStyle: {
-            backgroundColor: "#ff005a",
-          },
-          headerTintColor: "white",
-          headerTitleStyle: {
-            fontWeight: "600",
-            fontSize: 40,
-          },
-        }}
+        // options={{
+        //   headerStyle: {
+        //     backgroundColor: "#ff005a",
+        //   },
+        //   headerTintColor: "white",
+        //   headerTitleStyle: {
+        //     fontWeight: "600",
+        //     fontSize: 40,
+        //   },
+        // }}
       />
     </HomeStack.Navigator>
   );

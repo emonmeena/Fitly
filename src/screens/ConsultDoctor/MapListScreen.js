@@ -69,6 +69,14 @@ class MapListScreen  extends React.Component {
             }}
             title={"Current Location"}
           />
+
+          <MapView.Marker
+            coordinate={{
+              latitude: this.props.route.params.lat,
+              longitude: this.props.route.params.lon,
+            }}
+            title={this.props.route.params.name}
+          />
           
         </MapView>
       </View>

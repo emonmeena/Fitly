@@ -7,15 +7,28 @@ import {
   Button,
   Picker,
 } from "react-native";
+import * as firebase from 'firebase'
+
 
 function Register({ navigation }) {
-  const [Email, onChangeEmail] = React.useState();
-  const [Password, onChangePassword] = React.useState();
-  const [Age, changeAge] = React.useState();
   const [Name, onChangeName] = React.useState();
+  const [Email, onChangeEmail] = React.useState();
+  const [Password, onChangePassword] = React.useState('');
+  const [Age, changeAge] = React.useState();
   const [selectedValue, setSelectedValue] = React.useState("Male");
 
+
+  const registerUser=()=>{
+    try {
+      firebase.auth().createUserWithEmailAndPassword(Email, Password);
+      navigation.navigate('SignIn')      
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
+    <>
     <View
       style={{
         alignItems: "center",
@@ -103,7 +116,7 @@ function Register({ navigation }) {
 
       <Button
         color="black"
-        // onPress={''}
+        onPress={()=>registerUser()}
         title="Register"
       />
 
@@ -118,6 +131,7 @@ function Register({ navigation }) {
         />
       </View>
     </View>
+    </>
   );
 }
 
