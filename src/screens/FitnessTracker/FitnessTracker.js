@@ -18,12 +18,12 @@ const FitnessTracker = () => {
   return (
     <View style={styles.FitnessTrackerMainScreen}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={styles.bmiSection}>
+        {/* <View style={styles.bmiSection}>
           <Text style={styles.title}>Current BMI</Text>
           <View style={styles.bmiContainer}>
             <Text style={styles.numberData}>20</Text>
           </View>
-        </View>
+        </View> */}
         <Text style={styles.normalHeading}>BMI Progress</Text>
         <View style={styles.progressContainer}>
           <LineChart

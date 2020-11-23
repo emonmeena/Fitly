@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { TouchableOpacity } from "react-native";
 import { FlatList } from "react-native";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { Searchbar } from "react-native-paper";
@@ -7,7 +8,7 @@ import unsplashAPI from "../../api/unsplashAPI";
 import Article from "./Article";
 import Collection from "./Collection";
 
-const Explore = () => {
+const Explore = ({ navigation }) => {
   const [articles, setArticles] = useState([]);
   const [collections, setCollections] = useState([]);
   const [exploreMore, setExploreMore] = useState([]);
@@ -49,6 +50,7 @@ const Explore = () => {
     });
     setExploreMore(response.data.results);
   };
+  // console.log(props);
 
   return (
     <View style={styles.screenStyle}>
@@ -94,13 +96,15 @@ const Explore = () => {
         </View>
       </ScrollView> */}
       <FlatList
-      keyExtractor = {(item, index) => index}
+        keyExtractor={(item) => item.title}
         data={articles}
         renderItem={(itemData) => (
-          <Article
-            title={itemData.item.title}
-            urlToImage={itemData.item.urlToImage}
-          />
+          <TouchableOpacity onPress={() => navigation.navigate("")}>
+            <Article
+              title={itemData.item.title}
+              urlToImage={itemData.item.urlToImage}
+            />
+          </TouchableOpacity>
         )}
       />
     </View>
@@ -112,7 +116,6 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     // paddingTop : 25,
     paddingHorizontal: 10,
-
   },
   headingStyle: {
     fontSize: 20,
@@ -127,11 +130,11 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "#F0EEEE",
   },
-  title:{
+  title: {
     fontSize: 40,
     // fontWeight: 'bold'
     // color: '#1e90ff'
-  }
+  },
 });
 
 export default Explore;
