@@ -1,12 +1,24 @@
 import React ,{ Component } from 'react';
 import { Text, View,StyleSheet,Image,Button   } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 
 
-class Profile extends Component {
-	  render() {
+
+
+
+
+
+function Profile ({ navigation}){
+	  
+
+  const [isedit, onChangeedit] = React.useState(false);
+
  return (
+  
    <View style={styles.textStyle}>
+   
    <Image
           source={{
             uri: 'https://media.npr.org/assets/img/2020/05/05/gettyimages-693140990_custom-96572767b03e0e649349fdb6d38d649e6ccaed75-s800-c85.jpg',
@@ -34,6 +46,11 @@ class Profile extends Component {
 
 
              
+          <Text style={{fontSize:15,
+            
+           borderBottomWidth: StyleSheet.hairlineWidth,
+             borderBottomColor: "red",}} >Gender: Male</Text  >
+
           <Text style={{fontSize:20,borderRadius:20,
           borderColor:'black',
           borderWidth:4,
@@ -42,17 +59,19 @@ class Profile extends Component {
           }} >Fitly Score:10</Text  >
           <View>
           <Button
-            // onPress={''}
+            onPress={()=>{navigation.navigate('EditProfile')}}
             title="Edit Profile"
           />
+
           </View>
-       
+           
 
       
           </View>
- </View>);
+ </View>
+);
 
-}}
+}
 
 
 const styles = StyleSheet.create({
