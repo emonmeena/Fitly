@@ -1,87 +1,91 @@
 import React from "react";
-import { Text, TextInput, StyleSheet, View, Button } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
-// import Register from "./Register";
+import { TextInput, StyleSheet, View } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import { Input, Button, Text, SocialIcon } from "react-native-elements";
+
+
 
 function Login({ navigation }) {
-  const [Email, onChangeEmail] = React.useState(" Your Email Id");
+  const [Email, onChangeEmail] = React.useState();
   const [Password, onChangePassword] = React.useState();
+  
+  const SignUpUser =()=>{
+    
+  }
+
 
   return (
-    <View
-      style={{
-        alignItems: "center",
-        justifyContent: "center",
-        flex: 1,
-        backgroundColor: "#ff005a",
-      }}
-    >
-      <Text style={styles.textStyle}> Email ID </Text>
-      <TextInput
-        style={{
-          padding: 5,
-          height: 40,
-          color: "white",
-          borderColor: "black",
-          borderBottomWidth: 2,
-          width: "60%",
-        }}
-        onChangeText={(text) => onChangeEmail(text)}
-        value={Email}
-      />
-      <Text style={styles.textStyle}> Password </Text>
-      <TextInput
-        secureTextEntry={true}
-        style={{
-          padding: 5,
-          height: 40,
-          color: "white",
-          borderColor: "black",
-          borderBottomWidth: 2,
-          width: "60%",
-          marginBottom: 10,
-        }}
-        onChangeText={(text) => onChangePassword(text)}
-        value={Password}
-      />
-      <Button
-        color="black"
-        // onPress={''}
-        title="Login"
-      />
-      <Text></Text>
-      <Button
-        color="black"
-        onPress={() => navigation.navigate("mainFlow")}
-        title="Skip For Now"
-      />
-      <View style={{ position: "absolute", bottom: 10 }}>
-        <Text style={styles.newregisterStyle}> New user? </Text>
-        <Button
-          color="black"
-          title="Register"
-          onPress={() => {
-            navigation.navigate("SignUp");
-          }}
-        />
+    <>
+      <View style={styles.loginScreen}>
+        <Text h3>Get the  Fitness experience Now Fitly!!</Text>
+        <View style={styles.fieldsContainer}>
+          <Input
+            label="Email"
+            onChangeText={(text) => onChangeEmail(text)}
+            value={Email}
+            placeholder="Enter Your Email"
+          />
+          <Input
+            label="Password"
+            secureTextEntry={true}
+            onChangeText={(text) => onChangePassword(text)}
+            value={Password}
+            placeholder="Enter Your Password"
+          />
+          <Button title="SignIn Now" buttonStyle={styles.signinButton} onPress={()=> SignUpUser()} />
+          <Button
+            title="SignIn with Google"
+            type="outline"
+            icon={<SocialIcon type="google" light={true} />}
+            iconLeft
+          />
+        </View>
+        <View>
+          <Text style={styles.newregisterStyle}> New to Fitly? </Text>
+          <Button
+            title="SignUp"
+            type="outline"
+            buttonStyle={styles.signupButton}
+            onPress={() => {
+              navigation.navigate("SignUp");
+            }}
+          />
+          <Button
+            title="Skip For Now"
+            type="solid"
+            // buttonStyle={styles.signupButton}
+            onPress={() => {
+              navigation.navigate("mainFlow");
+            }}
+          />
+        </View>
       </View>
-    </View>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
-  textStyle: {
-    fontSize: 25,
-    color: "white",
-    marginTop: 10,
+  loginScreen: {
+    flex: 1,
+    padding: 10,
+    backgroundColor: "white",
+  },
+  fieldsContainer: {
+    marginTop: 50,
+  },
+  signinButton: {
+    backgroundColor: "#ff005a",
+    marginVertical: 10,
+    borderRadius: 7,
+  },
+  signupButton: {
+    borderRadius: 7,
   },
   newregisterStyle: {
     marginTop: 30,
     marginBottom: 10,
-
     fontSize: 15,
-    color: "white",
+    color: "#1e90ff",
   },
 });
 

@@ -1,9 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import { Text, View, StyleSheet, Image, Button } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import EditProfile from "./EditProfile";
-import { createAppContainer } from "react-navigation";
 
 const HomeStack = createStackNavigator();
 
@@ -44,7 +42,7 @@ function ProfileStack() {
 
 function Profile({ navigation }) {
   const [isedit, onChangeedit] = React.useState(false);
-
+  console.log(navigation);
   return (
     <View style={styles.textStyle}>
       <Image
@@ -143,9 +141,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     color: "white",
-
     backgroundColor: "white",
-    // height:'100%'
   },
   Profilpic: {
     backgroundColor: "gray",
@@ -163,8 +159,6 @@ const styles = StyleSheet.create({
     width: "100%",
     position: "absolute",
     top: 0,
-
-    //  marginBottom:200
   },
 });
 

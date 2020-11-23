@@ -1,96 +1,17 @@
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
-import { Text, StyleSheet } from "react-native";
+import {StyleSheet } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import LifeStyle from "../LifeStyle/LifeStyle";
 import ProfileStack from "../Profile/Profile";
-// import EditProfile from '../Profile/EditProfile';
-
 import FitnessTracker from "../FitnessTracker/FitnessTracker";
 import Explore from "../Explore/Explore";
 import { NavigationContainer } from "@react-navigation/native";
-// import Login from './Login.js';
-import { createStackNavigator } from "@react-navigation/stack";
-// import Register from './Register/Register';
+import ConsultDoctor from '../ConsultDoctor/ConsultDoctor'
 
 const Tab = createBottomTabNavigator();
 
-// const HomeStack = createStackNavigator();
-// function HomeStackScreen() {
-
-//   return (
-//     <HomeStack.Navigator >
-//      <HomeStack.Screen name="Login" component={Login}  options={{
-
-//           headerStyle: {
-
-//             backgroundColor: '#ff005a',
-
-//           },
-//           headerTintColor: 'white',
-//           headerTitleStyle: {
-
-//             fontWeight: '600',
-//             fontSize:40
-//           },
-//         }}/>
-//      <HomeStack.Screen name="Register" component={Register} options={{
-
-//           headerStyle: {
-//             backgroundColor: '#ff005a',
-
-//           },
-//           headerTintColor: 'white',
-//           headerTitleStyle: {
-
-//             fontWeight: '600',
-//             fontSize:40
-//           },
-//         }}/>
-
-//     </HomeStack.Navigator>
-//   );
-// }
-
-// function Profilex() {
-
-//   return (
-//     <HomeStack.Navigator >
-//      <HomeStack.Screen name="Profile" component={Profile}  options={{
-
-//           headerStyle: {
-
-//             backgroundColor: '#ff005a',
-
-//           },
-//           headerTintColor: 'white',
-//           headerTitleStyle: {
-
-//             fontWeight: '600',
-//             fontSize:40
-//           },
-//         }}/>
-//       <HomeStack.Screen name="EditProfile" component={EditProfile}  options={{
-
-//           headerStyle: {
-
-//             backgroundColor: '#ff005a',
-
-//           },
-//           headerTintColor: 'white',
-//           headerTitleStyle: {
-
-//             fontWeight: '600',
-//             fontSize:40
-//           },
-//         }}/>
-
-//     </HomeStack.Navigator>
-//   );
-// }
-
 const HomeScreen = () => {
-  // const [isLogin, onLogin] = React.useState(true);
 
   return (
     <NavigationContainer>
@@ -129,6 +50,7 @@ const HomeScreen = () => {
         <Tab.Screen name="LifeStyle" component={LifeStyle} />
         <Tab.Screen name="Fitness" component={FitnessTracker} />
         <Tab.Screen name="Profile" component={ProfileStack} />
+        <Tab.Screen name="Consult" component={ConsultDoctor} />
       </Tab.Navigator>
     </NavigationContainer>
   );

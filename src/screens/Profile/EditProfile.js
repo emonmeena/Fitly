@@ -1,11 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import {
   Text,
   View,
   StyleSheet,
-  Image,
   Button,
-  Picker,
   TextInput,
 } from "react-native";
 
