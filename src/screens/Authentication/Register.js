@@ -2,6 +2,7 @@ import React from 'react';
 import { Text,TextInput , StyleSheet ,View,Button,Picker} from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+
 function Register({ navigation }){
 	const [Email, onChangeEmail] = React.useState(' Your Email Id');
 	const [Password, onChangePassword] = React.useState('baaaa');
@@ -69,7 +70,7 @@ function Register({ navigation }){
    				  color='black'
 
             title="Login"
-            onPress={()=>{navigation.navigate('Login')}}
+            onPress={()=>{navigation.navigate('SignIn')}}
           /></View>
     </View>);
 }

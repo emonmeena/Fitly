@@ -1,29 +1,19 @@
 import React from "react";
 import { Image, Text } from "react-native";
-import { createAppContainer } from "react-navigation";
+import { createAppContainer, createSwitchNavigator } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
+// import
 import { Ionicons } from "@expo/vector-icons";
-import HomeScreen from "./src/screens/HomeScreen";
-import Login from "./src/screens/Login";
+import HomeScreen from "./src/screens/HomeScreen/HomeScreen";
+import Login from "./src/screens/Authentication/Login";
+import Register from "./src/screens/Authentication/Register";
 
-const navigator = createStackNavigator(
-  {
-    Home: HomeScreen,
-    Login: Login,
-  },
-  {
-    initialRouteName: "Home",
-    defaultNavigationOptions: {
-      title: "",
-      headerTransparent: true,
-      // headerRight: () => (
-      //   <Ionicons name="md-notifications" size={30} color="#ff005a" />
-      // ),
-      // headerLeft: () => (
-      //   <Text style={{color: '#ff005a', fontSize: 24}}>Fitly</Text>
-      // ),
-    },
-  }
-);
+const switchNavigator = createSwitchNavigator({
+  loginFlow: createStackNavigator({
+    SignIn: Login,
+    SignUp: Register,
+  }),
+  mainFlow: HomeScreen,
+});
 
-export default createAppContainer(navigator);
+export default createAppContainer(switchNavigator);
