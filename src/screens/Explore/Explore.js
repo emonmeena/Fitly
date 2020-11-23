@@ -15,7 +15,7 @@ const Explore = () => {
 
   useEffect(() => {
     // collectionAPI();
-    articlesAPI();
+    // articlesAPI();
     // exploreMoreAPI();
   });
 
