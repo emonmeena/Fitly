@@ -7,7 +7,7 @@ import ProfileStack from "../Profile/Profile";
 import FitnessTracker from "../FitnessTracker/FitnessTracker";
 import Explore from "../Explore/Explore";
 import { NavigationContainer } from "@react-navigation/native";
-import ConsultDoctor from '../ConsultDoctor/ConsultDoctor'
+// import ConsultDoctor from '../ConsultDoctor/ConsultDoctor'
 
 const Tab = createBottomTabNavigator();
 
@@ -28,6 +28,8 @@ const HomeScreen = () => {
               iconName = focused ? "md-pulse" : "md-pulse";
             } else if (route.name === "Explore") {
               iconName = focused ? "md-compass" : "md-compass";
+            }else if (route.name === "Consult") {
+              // iconName = focused ? "md-paper-plane" : "md-paper-plane";
             }
 
             // You can return any component that you like here!
@@ -50,7 +52,7 @@ const HomeScreen = () => {
         <Tab.Screen name="LifeStyle" component={LifeStyle} />
         <Tab.Screen name="Fitness" component={FitnessTracker} />
         <Tab.Screen name="Profile" component={ProfileStack} />
-        <Tab.Screen name="Consult" component={ConsultDoctor} />
+        {/* <Tab.Screen name="Consult" component={ConsultDoctor} /> */}
       </Tab.Navigator>
     </NavigationContainer>
   );
