@@ -143,7 +143,7 @@ class ConsultDoctorScreen extends React.Component {
             height: 180,
             marginBottom: 50,
             marginHorizontal: 10,
-            backgroundColor: "green",
+            backgroundColor: "#ff005a",
             borderRadius: 5,
           }}
         >
@@ -222,14 +222,18 @@ const styles = StyleSheet.create({
     borderColor: "red",
   },
   name: {
+    color: 'white',
     padding: 7,
     fontSize: 25,
   },
   cat: {
+    color: 'white',
+
     padding: 7,
     fontSize: 20,
   },
   add: {
+    color: 'white',
     padding: 7,
     fontSize: 18,
   },

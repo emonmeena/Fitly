@@ -28,7 +28,6 @@ function Register({ navigation }) {
   }
 
   return (
-    <>
     <View
       style={{
         alignItems: "center",
@@ -55,6 +54,34 @@ function Register({ navigation }) {
       <Text style={styles.textStyle}>Enter your Age </Text>
       <TextInput
         placeholder="16"
+        style={{
+          padding: 5,
+          height: 40,
+          color: "white",
+          borderColor: "black",
+          borderBottomWidth: 2,
+          width: "60%",
+          marginBottom: 10,
+        }}
+        onChangeText={(text) => changeAge(text)}
+        value={Age}
+      /><Text style={styles.textStyle}>Enter your Height </Text>
+      <TextInput
+        placeholder="in meters"
+        style={{
+          padding: 5,
+          height: 40,
+          color: "white",
+          borderColor: "black",
+          borderBottomWidth: 2,
+          width: "60%",
+          marginBottom: 10,
+        }}
+        onChangeText={(text) => changeAge(text)}
+        value={Age}
+      /><Text style={styles.textStyle}>Enter your Wieght </Text>
+      <TextInput
+        placeholder="in KG"
         style={{
           padding: 5,
           height: 40,
@@ -108,7 +135,7 @@ function Register({ navigation }) {
           borderColor: "black",
           borderBottomWidth: 2,
           width: "60%",
-          marginBottom: 10,
+          // marginBottom: 10,
         }}
         onChangeText={(text) => onChangePassword(text)}
         value={Password}
@@ -120,7 +147,7 @@ function Register({ navigation }) {
         title="Register"
       />
 
-      <View style={{ position: "absolute", bottom: 10 }}>
+      <View>
         <Text style={styles.LoginStyle}> Already Registered?</Text>
         <Button
           color="black"
@@ -131,7 +158,6 @@ function Register({ navigation }) {
         />
       </View>
     </View>
-    </>
   );
 }
 
@@ -139,11 +165,11 @@ const styles = StyleSheet.create({
   textStyle: {
     fontSize: 25,
     color: "white",
-    marginTop: 20,
+    marginTop: 5,
   },
   LoginStyle: {
-    marginTop: 30,
-    marginBottom: 10,
+    marginTop: 10,
+    marginBottom: 5,
 
     fontSize: 15,
     color: "white",

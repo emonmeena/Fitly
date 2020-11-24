@@ -27,7 +27,7 @@ const ExploreScreen = ({ navigation }) => {
 
   useEffect(() => {
     // collectionAPI();
-    // articlesAPI();
+    articlesAPI();
     // exploreMoreAPI();
   });
 

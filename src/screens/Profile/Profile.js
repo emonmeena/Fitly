@@ -120,7 +120,7 @@ function Profile({ navigation }) {
             borderBottomColor: "red",
           }}
         >
-          devansh_j@cs.iitr.ac.in
+          mayank16meena@gmail.com
         </Text>
 
         <Text
@@ -145,7 +145,7 @@ function Profile({ navigation }) {
           Gender: Male
         </Text>
 
-        <Text
+        {/* <Text
           style={{
             fontSize: 20,
             borderRadius: 20,
@@ -154,8 +154,8 @@ function Profile({ navigation }) {
             padding: 5,
           }}
         >
-          Fitly Score:10
-        </Text>
+          Fitly Score:
+        </Text> */}
         <View>
           <Button
             onPress={() => {

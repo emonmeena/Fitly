@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View } from "react-native";
 import { ScrollView } from "react-native";
 import { Text, StyleSheet } from "react-native";
 import { Dimensions } from "react-native";
 const screenWidth = Dimensions.get("window").width;
+import DataContext from "../../context/DataContext";
 
 import {
   LineChart,
@@ -14,7 +15,9 @@ import {
   StackedBarChart,
 } from "react-native-chart-kit";
 
-const FitnessTracker = () => {
+const FitnessTracker = (props) => {
+  const value = useContext(DataContext);
+  console.log(value);
   return (
     <View style={styles.FitnessTrackerMainScreen}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -24,7 +27,8 @@ const FitnessTracker = () => {
             <Text style={styles.numberData}>20</Text>
           </View>
         </View> */}
-        <Text style={styles.normalHeading}>BMI Progress</Text>
+        <Text style={styles.normalHeading2}>Hii Tom, your Fitness Progress report is ready</Text>
+        <Text style={styles.normalHeading}>BMI Progress {value} </Text>
         <View style={styles.progressContainer}>
           <LineChart
             data={data}
@@ -98,6 +102,7 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: "white",
     flex: 3,
+    paddingTop: 50,
   },
   bmiSection: {
     textAlign: "center",
@@ -137,6 +142,12 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 5,
     color: "#585858",
+    // fontWeight: 'bold',
+  }, normalHeading2: {
+    fontSize: 24,
+    paddingVertical: 10,
+    paddingHorizontal: 5,
+    color: "#1e90ff",
     // fontWeight: 'bold',
   },
   normalHeadingWhite: {

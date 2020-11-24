@@ -11,8 +11,8 @@ import ConsultDoctor from '../ConsultDoctor/ConsultDoctor'
 
 const Tab = createBottomTabNavigator();
 
-const HomeScreen = () => {
-
+const HomeScreen = (props) => {
+// console.log(props);
   return (
     <NavigationContainer>
       <Tab.Navigator
@@ -49,8 +49,8 @@ const HomeScreen = () => {
         }}
       >
         <Tab.Screen name="Explore" component={Explore} />
-        <Tab.Screen name="LifeStyle" component={LifeStyle} />
-        <Tab.Screen name="Fitness" component={FitnessTracker} />
+        <Tab.Screen name="LifeStyle" component={LifeStyle} params={{mayank: '123', meena: 2}} />
+        <Tab.Screen name="Fitness" component={FitnessTracker}/>
         <Tab.Screen name="Consult" component={ConsultDoctor} />
         <Tab.Screen name="Profile" component={ProfileStack} />
       </Tab.Navigator>
