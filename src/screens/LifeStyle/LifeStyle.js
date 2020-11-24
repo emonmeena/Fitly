@@ -3,8 +3,7 @@ import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import ReadArticle from "./ReadArticle";
 import Collection from "./Collection";
-import YogaArticle from "./Article";
-
+import YogaArticle from "./YogaArticle";
 
 const LifeStyleStack = createStackNavigator();
 
@@ -26,16 +25,15 @@ const LifeStyleScreen = ({ navigation }) => {
 
   return (
     <View style={styles.screenStyle}>
-      <View style={styles.searchBoxContainer}></View>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View>
           <Text style={styles.headingStyle}>
-            Article Collections Recommended for you
+            Article Collections
           </Text>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             {articleCollections.map((article, index) => (
               <Collection
-                leftMargin={index == 0 ? 10 : 0}
+                leftMargin={index == 0 ? 0 : 10}
                 key={index}
                 urlToImage={article.image}
                 title={article.title}
@@ -44,7 +42,7 @@ const LifeStyleScreen = ({ navigation }) => {
           </ScrollView>
         </View>
         <View>
-          <Text style={styles.headingStyle}></Text>
+          <Text style={styles.headingStyle}> Yoga Recommended For You </Text>
           {articles.map((article, index) => (
             <YogaArticle
               key={article.pose_name}
@@ -66,18 +64,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   headingStyle: {
-    fontSize: 20,
-    padding: 10,
+    fontSize: 24,
+    paddingTop: 15,
+    paddingBottom: 7,
+    fontWeight: "bold",
+    color: "gray",
   },
-  searchBox: {
-    backgroundColor: "#F0EEEE",
-  },
-  searchBoxContainer: {
-    paddingVertical: 20,
-    paddingHorizontal: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: "#F0EEEE",
-  },
+  // searchBox: {
+  //   backgroundColor: "#F0EEEE",
+  // },
   title: {
     fontSize: 40,
     // fontWeight: 'bold'
