@@ -18,6 +18,8 @@ const styles = StyleSheet.create({
     articleStyle: {
         backgroundColor: 'white',
         borderRadius: 7,
+        borderWidth: 0.8,
+        borderColor: 'gray',
         marginVertical: 10,
         shadowColor: "#000",
         shadowOpacity: 0.7,
@@ -25,7 +27,8 @@ const styles = StyleSheet.create({
         elevation: 4,
     },
     headingStyle: {
-        fontSize: 15,
+        fontSize: 18,
+        fontWeight: 'bold',
         color: 'grey',
 
     },

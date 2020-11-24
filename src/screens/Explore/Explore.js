@@ -22,7 +22,7 @@ const ExploreScreen = ({ navigation }) => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    articlesAPI();
+    // articlesAPI();
   });
 
   const articlesAPI = async () => {
@@ -39,6 +39,7 @@ const ExploreScreen = ({ navigation }) => {
   return (
     <View style={styles.screenStyle}>
       <FlatList
+      showsVerticalScrollIndicator={false}
         keyExtractor={(item) => item.title}
         data={articles}
         renderItem={(itemData) => (

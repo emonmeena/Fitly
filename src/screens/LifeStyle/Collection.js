@@ -24,8 +24,6 @@ const styles = StyleSheet.create({
         height: 200,
         width: 170,
         borderRadius: 7,
-        marginRight: 10,
-        marginBottom: 10,
         shadowColor: "#000",
         shadowOpacity: 0.7,
         shadowRadius: 10,
