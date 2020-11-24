@@ -7,27 +7,25 @@ import {
   Button,
   Picker,
 } from "react-native";
-import * as firebase from 'firebase'
-
+import * as firebase from "firebase";
 
 function Register({ navigation }) {
   const [Name, onChangeName] = React.useState();
   const [Email, onChangeEmail] = React.useState();
-  const [Password, onChangePassword] = React.useState('');
+  const [Password, onChangePassword] = React.useState("");
   const [Age, changeAge] = React.useState();
   const [Height, changeHeight] = React.useState();
   const [Weight, changeWeight] = React.useState();
   const [selectedValue, setSelectedValue] = React.useState("Male");
 
-
-  const registerUser=()=>{
+  const registerUser = () => {
     try {
       firebase.auth().createUserWithEmailAndPassword(Email, Password);
-      navigation.navigate('SignIn')      
+      navigation.navigate("SignIn");
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   return (
     <View
@@ -63,11 +61,12 @@ function Register({ navigation }) {
           borderColor: "black",
           borderBottomWidth: 2,
           width: "60%",
-          marginBottom: 10,
+          marginBottom: 0,
         }}
         onChangeText={(text) => changeAge(text)}
         value={Age}
-      /><Text style={styles.textStyle}>Enter your Height </Text>
+      />
+      <Text style={styles.textStyle}>Enter your Height </Text>
       <TextInput
         placeholder="in meters"
         style={{
@@ -77,11 +76,12 @@ function Register({ navigation }) {
           borderColor: "black",
           borderBottomWidth: 2,
           width: "60%",
-          marginBottom: 10,
+          marginBottom: 0,
         }}
         onChangeText={(text) => changeHeight(text)}
         value={Height}
-      /><Text style={styles.textStyle}>Enter your Wieght </Text>
+      />
+      <Text style={styles.textStyle}>Enter your Wieght </Text>
       <TextInput
         placeholder="in KG"
         style={{
@@ -91,7 +91,7 @@ function Register({ navigation }) {
           borderColor: "black",
           borderBottomWidth: 2,
           width: "60%",
-          marginBottom: 10,
+          marginBottom: 0,
         }}
         onChangeText={(text) => changeWeight(text)}
         value={Weight}
@@ -142,12 +142,9 @@ function Register({ navigation }) {
         onChangeText={(text) => onChangePassword(text)}
         value={Password}
       />
-
-      <Button
-        color="black"
-        onPress={()=>registerUser()}
-        title="Register"
-      />
+      <View>
+        <Button color="black" onPress={() => registerUser()} title="Register" />
+      </View>
 
       <View>
         <Text style={styles.LoginStyle}> Already Registered?</Text>
@@ -167,11 +164,11 @@ const styles = StyleSheet.create({
   textStyle: {
     fontSize: 25,
     color: "white",
-    marginTop: 5,
+    marginTop: 0,
   },
   LoginStyle: {
-    marginTop: 10,
-    marginBottom: 5,
+    marginTop: 0,
+    marginBottom: 0,
 
     fontSize: 15,
     color: "white",

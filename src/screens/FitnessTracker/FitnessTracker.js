@@ -17,7 +17,6 @@ import {
 
 const FitnessTracker = (props) => {
   const value = useContext(DataContext);
-  console.log(value);
   return (
     <View style={styles.FitnessTrackerMainScreen}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -27,7 +26,7 @@ const FitnessTracker = (props) => {
             <Text style={styles.numberData}>20</Text>
           </View>
         </View> */}
-        <Text style={styles.normalHeading2}>Hii Tom, your Fitness Progress report is ready</Text>
+        <Text style={styles.normalHeading2}>Hii Mayank, your Fitness Progress report is ready</Text>
         <Text style={styles.normalHeading}>BMI Progress {value} </Text>
         <View style={styles.progressContainer}>
           <LineChart
@@ -42,7 +41,7 @@ const FitnessTracker = (props) => {
         <Text style={styles.normalHeading}>Health Stats</Text>
         <View style={styles.healthStatsContainer}>
           <View style={styles.healthStatGreen}>
-            <Text style={styles.numberData}>65 m</Text>
+            <Text style={styles.numberData}>1.7 m</Text>
             <Text style={styles.healthStatTitle}>Height</Text>
           </View>
           <View style={styles.healthStatBlue}>
@@ -50,7 +49,7 @@ const FitnessTracker = (props) => {
             <Text style={styles.healthStatTitle}>Weight</Text>
           </View>
           <View style={styles.healthStatRed}>
-            <Text style={styles.numberData}>24.12</Text>
+            <Text style={styles.numberData}>22.4</Text>
             <Text style={styles.healthStatTitle}>BMI</Text>
           </View>
         </View>
@@ -78,7 +77,7 @@ const data = {
   datasets: [
     {
       // data: [20, 45, 28, 80, 99, 43, 23, 65, 34, 56, 78, 100],
-      data: [17.3, 20.04, 21, 22, 20.14, 21],
+      data: [20,18,19,22.4,23,22.4],
       color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`, // optional
       strokeWidth: 3, // optional
     },

@@ -20,30 +20,10 @@ function ProfileStack() {
       <HomeStack.Screen
         name="Profile"
         component={Profile}
-        // options={{
-        //   headerStyle: {
-        //     backgroundColor: "#ff005a",
-        //   },
-        //   headerTintColor: "white",
-        //   headerTitleStyle: {
-        //     fontWeight: "600",
-        //     fontSize: 40,
-        //   },
-        // }}
       />
       <HomeStack.Screen
         name="EditProfile"
         component={EditProfile}
-        // options={{
-        //   headerStyle: {
-        //     backgroundColor: "#ff005a",
-        //   },
-        //   headerTintColor: "white",
-        //   headerTitleStyle: {
-        //     fontWeight: "600",
-        //     fontSize: 40,
-        //   },
-        // }}
       />
     </HomeStack.Navigator>
   );
@@ -110,7 +90,7 @@ function Profile({ navigation }) {
             borderBottomWidth: StyleSheet.hairlineWidth,
           }}
         >
-          Tom Cruise
+          Mayank Meena
         </Text>
 
         <Text
@@ -131,7 +111,7 @@ function Profile({ navigation }) {
             borderBottomColor: "red",
           }}
         >
-          AGE:10
+          AGE:19
         </Text>
 
         <Text
