@@ -14,4 +14,6 @@
 ### Contributors
 Mayank Meena <br/>
 Anikait Agrawal <br/>
-Devansh joshi
+Devansh joshi<br/>
+Anshika Mittal<br/>
+Neha Kumari

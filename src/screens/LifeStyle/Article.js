@@ -1,13 +1,17 @@
 import React from 'react'
 import { View, Text, StyleSheet, Image } from 'react-native';
 
-const YogaArticle = ({urlToImage, title}) =>{
+const YogaArticle = ({description, title, benefits}) =>{
     return (
         <View style={styles.articleStyle}>
             <View>
             </View>
             <View style={styles.textContainerStyle}>
                 <Text numberOfLines={2} style={styles.headingStyle}>{title}</Text>
+                <Text style={styles.headingStyle}>{'benefits'}</Text>
+                <Text numberOfLines={4} >{benefits}</Text>
+                <Text style={styles.headingStyle}>{'How to do'}</Text>
+                <Text numberOfLines={8} >{description}</Text>
             </View>
         </View>
     );    
@@ -24,7 +28,8 @@ const styles = StyleSheet.create({
         elevation: 4,
     },
     headingStyle: {
-        fontSize: 15,
+        fontSize: 18,
+        fontWeight: 'bold',
         color: 'grey',
 
     },
@@ -39,7 +44,7 @@ const styles = StyleSheet.create({
     },
     textContainerStyle:{
         padding: 10,
-        height: 90
+        height: 300
     }
 })
 

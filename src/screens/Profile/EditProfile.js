@@ -8,10 +8,10 @@ import {
 } from "react-native";
 
 function EditProfile() {
-  const [Name, onChangeName] = React.useState();
-  const [Age, changeAge] = React.useState();
-  const [Email, onChangeEmail] = React.useState();
-  const [Password, onChangePassword] = React.useState();
+  const [Name, onChangeName] = React.useState('Mayank Meena');
+  const [Age, changeAge] = React.useState('19');
+  const [Email, onChangeEmail] = React.useState('mayank16meena@gmail.com');
+  const [Password, onChangePassword] = React.useState('mayank321');
   return (
     <View
       style={{
