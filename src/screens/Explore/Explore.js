@@ -39,6 +39,7 @@ const ExploreScreen = ({ navigation }) => {
   return (
     <View style={styles.screenStyle}>
       <FlatList
+      showsVerticalScrollIndicator={false}
         keyExtractor={(item) => item.title}
         data={articles}
         renderItem={(itemData) => (
