@@ -22,7 +22,7 @@ const ExploreScreen = ({ navigation }) => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    articlesAPI();
+    // articlesAPI();
   });
 
   const articlesAPI = async () => {

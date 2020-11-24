@@ -6,28 +6,17 @@ import { Dimensions } from "react-native";
 const screenWidth = Dimensions.get("window").width;
 import DataContext from "../../context/DataContext";
 
-import {
-  LineChart,
-  BarChart,
-  PieChart,
-  ProgressChart,
-  ContributionGraph,
-  StackedBarChart,
-} from "react-native-chart-kit";
+import { LineChart } from "react-native-chart-kit";
 
 const FitnessTracker = (props) => {
   const value = useContext(DataContext);
   return (
     <View style={styles.FitnessTrackerMainScreen}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        {/* <View style={styles.bmiSection}>
-          <Text style={styles.title}>Current BMI</Text>
-          <View style={styles.bmiContainer}>
-            <Text style={styles.numberData}>20</Text>
-          </View>
-        </View> */}
-        <Text style={styles.normalHeading2}>Hii Mayank, your Fitness Progress report is ready</Text>
-        <Text style={styles.normalHeading}>BMI Progress {value} </Text>
+        <Text style={styles.normalHeading2}>
+          Hii Mayank, Here's Your Fitness Progress Report
+        </Text>
+        <Text style={styles.normalHeading}>Your BMI Progress {value} </Text>
         <View style={styles.progressContainer}>
           <LineChart
             data={data}
@@ -38,7 +27,7 @@ const FitnessTracker = (props) => {
             // bezier
           />
         </View>
-        <Text style={styles.normalHeading}>Health Stats</Text>
+        <Text style={styles.normalHeading}>Your Health Stats</Text>
         <View style={styles.healthStatsContainer}>
           <View style={styles.healthStatGreen}>
             <Text style={styles.numberData}>1.7 m</Text>
@@ -77,12 +66,11 @@ const data = {
   datasets: [
     {
       // data: [20, 45, 28, 80, 99, 43, 23, 65, 34, 56, 78, 100],
-      data: [20,18,19,22.4,23,22.4],
+      data: [20, 18, 19, 22.4, 23, 22.4],
       color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`, // optional
       strokeWidth: 3, // optional
     },
   ],
-  // legend: ["BMI Progress"] // optional
 };
 
 const chartConfig = {
@@ -106,7 +94,6 @@ const styles = StyleSheet.create({
   bmiSection: {
     textAlign: "center",
     alignContent: "center",
-    // backgroundColor: "#ff005a",
   },
   title: {
     fontSize: 30,
@@ -118,36 +105,28 @@ const styles = StyleSheet.create({
     color: "white",
     textAlign: "center",
   },
-  bmiContainer: {
-    // borderColor: '',
-    // borderWidth: 1,
-    // backgroundColor: "",
-    padding: 5,
-    borderRadius: 10,
-    marginVertical: 20,
-    width: 70,
-    alignSelf: "center",
-  },
   progressContainer: {
     backgroundColor: "#1e90ff",
-    borderRadius: 20,
+    borderRadius: 10,
     borderWidth: 2,
     borderColor: "white",
-    // marginHorizontal: 10,
     paddingVertical: 10,
   },
   normalHeading: {
     fontSize: 24,
-    paddingVertical: 10,
-    paddingHorizontal: 5,
+    paddingTop: 15,
+    paddingBottom: 7,
+    // paddingHorizontal: 5,
     color: "#585858",
-    // fontWeight: 'bold',
-  }, normalHeading2: {
+  },
+  textStyle: {
+    fontSize: 22,
+    color: "gray",
+  },
+  normalHeading2: {
     fontSize: 24,
-    paddingVertical: 10,
-    paddingHorizontal: 5,
-    color: "#1e90ff",
-    // fontWeight: 'bold',
+    fontWeight: 'bold',
+    color: 'gray'
   },
   normalHeadingWhite: {
     fontSize: 24,
@@ -157,7 +136,6 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     flexWrap: "wrap",
-    // display: 'flex',
     justifyContent: "space-between",
   },
   healthStatGreen: {
@@ -178,7 +156,7 @@ const styles = StyleSheet.create({
   },
   healthStatRed: {
     paddingVertical: 20,
-    backgroundColor: "#e05252",
+    backgroundColor: "#ec9a3a",
     height: 100,
     borderRadius: 10,
     width: 120,
@@ -191,7 +169,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   bmiInfoContainer: {
-    backgroundColor: "#ec9a3a",
+    backgroundColor: "#ff005a",
     borderRadius: 10,
     padding: 10,
   },

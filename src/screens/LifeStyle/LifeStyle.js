@@ -16,7 +16,7 @@ const LifeStyle = () => {
   );
 };
 
-const LifeStyleScreen = ({ navigation }) => {
+const LifeStyleScreen = () => {
   useEffect(() => {
     articlesAPI();
   });
@@ -42,8 +42,8 @@ const LifeStyleScreen = ({ navigation }) => {
           </ScrollView>
         </View>
         <View>
-          <Text style={styles.headingStyle}> Yoga Recommended For You </Text>
-          {articles.map((article, index) => (
+          <Text style={styles.headingStyle}>Yoga For You </Text>
+          {articles.map((article) => (
             <YogaArticle
               key={article.pose_name}
               title={article.pose_name}
@@ -60,7 +60,6 @@ const LifeStyleScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   screenStyle: {
     backgroundColor: "white",
-    // paddingTop : 25,
     paddingHorizontal: 10,
   },
   headingStyle: {
@@ -70,13 +69,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "gray",
   },
-  // searchBox: {
-  //   backgroundColor: "#F0EEEE",
-  // },
   title: {
     fontSize: 40,
-    // fontWeight: 'bold'
-    // color: '#1e90ff'
   },
 });
 
