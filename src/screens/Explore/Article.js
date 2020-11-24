@@ -25,7 +25,8 @@ const styles = StyleSheet.create({
         elevation: 4,
     },
     headingStyle: {
-        fontSize: 15,
+        fontSize: 18,
+        fontWeight: 'bold',
         color: 'grey',
 
     },
