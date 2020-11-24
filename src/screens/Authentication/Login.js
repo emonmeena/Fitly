@@ -11,7 +11,7 @@ function Login({ navigation }) {
   
   const SignInUser =()=>{
     firebase.auth().signInWithEmailAndPassword(Email,Password).then(user => {
-      if(user) navigation.navigate('mainFlow')
+      if(user) navigation.navigate('mainFlow',{i:1})
     })
     // console.log(Email)
   }
