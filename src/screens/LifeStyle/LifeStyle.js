@@ -28,9 +28,9 @@ const LifeStyleScreen = ({ navigation }) => {
   const titles = [];
 
   useEffect(() => {
-    collectionAPI();
+    // collectionAPI();
     // articlesAPI();
-    exploreMoreAPI();
+    // exploreMoreAPI();
   });
 
   const collectionAPI = async () => {

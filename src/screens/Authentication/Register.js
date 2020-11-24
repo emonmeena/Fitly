@@ -15,6 +15,8 @@ function Register({ navigation }) {
   const [Email, onChangeEmail] = React.useState();
   const [Password, onChangePassword] = React.useState('');
   const [Age, changeAge] = React.useState();
+  const [Height, changeHeight] = React.useState();
+  const [Weight, changeWeight] = React.useState();
   const [selectedValue, setSelectedValue] = React.useState("Male");
 
 
@@ -77,8 +79,8 @@ function Register({ navigation }) {
           width: "60%",
           marginBottom: 10,
         }}
-        onChangeText={(text) => changeAge(text)}
-        value={Age}
+        onChangeText={(text) => changeHeight(text)}
+        value={Height}
       /><Text style={styles.textStyle}>Enter your Wieght </Text>
       <TextInput
         placeholder="in KG"
@@ -91,8 +93,8 @@ function Register({ navigation }) {
           width: "60%",
           marginBottom: 10,
         }}
-        onChangeText={(text) => changeAge(text)}
-        value={Age}
+        onChangeText={(text) => changeWeight(text)}
+        value={Weight}
       />
 
       <Text style={styles.textStyle}>Select your gender</Text>
