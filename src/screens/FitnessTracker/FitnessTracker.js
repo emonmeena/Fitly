@@ -1,25 +1,23 @@
 import React, { useContext } from "react";
-import { View } from "react-native";
-import { ScrollView } from "react-native";
-import { Text, StyleSheet } from "react-native";
-import { Dimensions } from "react-native";
-const screenWidth = Dimensions.get("window").width;
-import DataContext from "../../context/DataContext";
-
+import { Text, StyleSheet, Dimensions, ScrollView, View } from "react-native";
+import UserDataContext from "../../context/UserDataContext";
 import { LineChart } from "react-native-chart-kit";
+// import firestore from "@react-native-firebase/firestore";
 
-const FitnessTracker = (props) => {
-  const value = useContext(DataContext);
+const screenWidth = Dimensions.get("window").width;
+
+const FitnessTracker = () => {
+  const { data } = useContext(UserDataContext);
   return (
     <View style={styles.FitnessTrackerMainScreen}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Text style={styles.normalHeading2}>
-          Hii Mayank, Here's Your Fitness Progress Report
+          Hii {data.username}, Here's Your Fitness Progress Report
         </Text>
-        <Text style={styles.normalHeading}>Your BMI Progress {value} </Text>
+        <Text style={styles.normalHeading}>Your BMI Progress </Text>
         <View style={styles.progressContainer}>
           <LineChart
-            data={data}
+            data={BMIdata}
             width={screenWidth}
             height={260}
             verticalLabelRotation={0}
@@ -30,15 +28,17 @@ const FitnessTracker = (props) => {
         <Text style={styles.normalHeading}>Your Health Stats</Text>
         <View style={styles.healthStatsContainer}>
           <View style={styles.healthStatGreen}>
-            <Text style={styles.numberData}>1.7 m</Text>
+            <Text style={styles.numberData}>{data.height} m</Text>
             <Text style={styles.healthStatTitle}>Height</Text>
           </View>
           <View style={styles.healthStatBlue}>
-            <Text style={styles.numberData}>65 Kgs</Text>
+            <Text style={styles.numberData}>{data.weight} Kgs</Text>
             <Text style={styles.healthStatTitle}>Weight</Text>
           </View>
           <View style={styles.healthStatRed}>
-            <Text style={styles.numberData}>22.4</Text>
+            <Text style={styles.numberData}>
+              {(data.weight / Math.pow(data.height, 2)).toFixed(1)}
+            </Text>
             <Text style={styles.healthStatTitle}>BMI</Text>
           </View>
         </View>
@@ -47,7 +47,6 @@ const FitnessTracker = (props) => {
             What Your BMI got to say?
           </Text>
           <Text style={styles.normalText}>
-            {" "}
             Age-related muscle loss is a natural part of getting older. But
             muscle loss can occur faster after an injury, illness, or any
             prolonged period of inactivity, leading to muscle atrophy. The
@@ -60,7 +59,7 @@ const FitnessTracker = (props) => {
   );
 };
 
-const data = {
+const BMIdata = {
   // labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
   labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
   datasets: [
@@ -125,8 +124,8 @@ const styles = StyleSheet.create({
   },
   normalHeading2: {
     fontSize: 24,
-    fontWeight: 'bold',
-    color: 'gray'
+    fontWeight: "bold",
+    color: "gray",
   },
   normalHeadingWhite: {
     fontSize: 24,

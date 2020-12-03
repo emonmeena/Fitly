@@ -3,7 +3,6 @@ import MapView from 'react-native-maps'
 import { StyleSheet, FlatList, Text, TouchableOpacity, Dimensions, View } from 'react-native'
 import * as Permissions from 'expo-permissions'
 import * as Location from 'expo-location'
-import ConsultDoctor from './ConsultDoctor'
 
 const { width, height } = Dimensions.get("window");
 

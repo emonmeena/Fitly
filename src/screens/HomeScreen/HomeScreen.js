@@ -1,45 +1,44 @@
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
-import {StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import LifeStyle from "../LifeStyle/LifeStyle";
 import ProfileStack from "../Profile/Profile";
 import FitnessTracker from "../FitnessTracker/FitnessTracker";
 import Explore from "../Explore/Explore";
 import { NavigationContainer } from "@react-navigation/native";
-import ConsultDoctor from '../ConsultDoctor/ConsultDoctor'
+import ConsultDoctor from "../ConsultDoctor/ConsultDoctor";
 
 const Tab = createBottomTabNavigator();
 
 const HomeScreen = (props) => {
-// console.log(props);
+  // console.log(props);
   return (
     <NavigationContainer>
       <Tab.Navigator
+      initialRouteName={'Fitness'}
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
 
             if (route.name === "LifeStyle") {
-              iconName = focused ? "md-heart" : "md-heart";
+              iconName = focused ? "md-hand" : "md-hand";
             } else if (route.name === "Profile") {
               iconName = focused ? "md-contact" : "md-contact";
             } else if (route.name === "Fitness") {
               iconName = focused ? "md-pulse" : "md-pulse";
             } else if (route.name === "Explore") {
               iconName = focused ? "md-compass" : "md-compass";
-            }else if (route.name === "Consult") {
+            } else if (route.name === "Consult") {
               iconName = focused ? "md-paper-plane" : "md-paper-plane";
             }
 
-            // You can return any component that you like here!
-            return <Ionicons name={iconName} size={size} color={color} />;
+            return <Ionicons name={iconName} size={size} color={color} />;  
           },
         })}
         tabBarOptions={{
           activeTintColor: "#ff005a",
           inactiveTintColor: "#B8B8B8",
-          // activeBackgroundColor:'#1e90ff',
           inactiveBackgroundColor: "white",
           tabStyle: {
             alignItems: "center",
@@ -49,8 +48,8 @@ const HomeScreen = (props) => {
         }}
       >
         <Tab.Screen name="Explore" component={Explore} />
-        <Tab.Screen name="LifeStyle" component={LifeStyle} params={{mayank: '123', meena: 2}} />
-        <Tab.Screen name="Fitness" component={FitnessTracker}/>
+        <Tab.Screen name="LifeStyle" component={LifeStyle} />
+        <Tab.Screen name="Fitness" component={FitnessTracker} />
         <Tab.Screen name="Consult" component={ConsultDoctor} />
         <Tab.Screen name="Profile" component={ProfileStack} />
       </Tab.Navigator>

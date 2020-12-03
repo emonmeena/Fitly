@@ -1,17 +1,14 @@
-import React from "react";
-import {
-  Text,
-  View,
-  StyleSheet,
-  Button,
-  TextInput,
-} from "react-native";
+import React, { useContext } from "react";
+import { Text, View, StyleSheet, Button, TextInput } from "react-native";
+
+import UserDataContext from "../../context/UserDataContext";
 
 function EditProfile() {
-  const [Name, onChangeName] = React.useState('Mayank Meena');
-  const [Age, changeAge] = React.useState('19');
-  const [Email, onChangeEmail] = React.useState('mayank16meena@gmail.com');
-  const [Password, onChangePassword] = React.useState('mayank321');
+  const [Name, onChangeName] = React.useState("Mayank Meena");
+  const [Age, changeAge] = React.useState("19");
+  const [Email, onChangeEmail] = React.useState("mayank16meena@gmail.com");
+  const [Password, onChangePassword] = React.useState("mayank321");
+  const {data} = useContext(UserDataContext);
   return (
     <View
       style={{
@@ -23,7 +20,6 @@ function EditProfile() {
       }}
     >
       <Text style={{ fontSize: 25, color: "white", marginTop: 20 }}>
-        {" "}
         Edit your Name
       </Text>
 
@@ -37,14 +33,14 @@ function EditProfile() {
           width: "60%",
         }}
         onChangeText={(text) => onChangeName(text)}
-        value={Name}
+        value={data.username}
       />
 
-      <Text style={{ fontSize: 25, color: "white", marginTop: 20 }}>
+      {/* <Text style={{ fontSize: 25, color: "white", marginTop: 20 }}>
         {" "}
         Edit your Age
-      </Text>
-
+      </Text> */}
+{/* 
       <TextInput
         style={{
           padding: 5,
@@ -56,9 +52,9 @@ function EditProfile() {
           marginBottom: 10,
         }}
         onChangeText={(text) => changeAge(text)}
-        value={Age}
-      />
-      <Text style={{ fontSize: 25, color: "white", marginTop: 20 }}>
+        value={data.age}
+      /> */}
+      {/* <Text style={{ fontSize: 25, color: "white", marginTop: 20 }}>
         {" "}
         Edit your Email ID
       </Text>
@@ -93,7 +89,7 @@ function EditProfile() {
         }}
         onChangeText={(text) => onChangePassword(text)}
         value={Password}
-      />
+      /> */}
       <Button
         color="black"
         // onPress={''}

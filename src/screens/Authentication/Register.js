@@ -5,9 +5,10 @@ import {
   StyleSheet,
   View,
   Button,
-  Picker,
+  // Picker,
 } from "react-native";
 import * as firebase from "firebase";
+import { db } from "../../context/UserDataContext";
 
 function Register({ navigation }) {
   const [Name, onChangeName] = React.useState();
@@ -21,7 +22,18 @@ function Register({ navigation }) {
   const registerUser = () => {
     try {
       firebase.auth().createUserWithEmailAndPassword(Email, Password);
-      navigation.navigate("SignIn");
+      db.collection("UsersData")
+        .doc(Email)
+        .set({
+          username: Name,
+          email: Email,
+          age: Age,
+          height: Height,
+          weight: Weight,
+        })
+        .then(() => {
+          navigation.navigate("SignIn");
+        });
     } catch (error) {
       console.log(error);
     }
@@ -97,7 +109,7 @@ function Register({ navigation }) {
         value={Weight}
       />
 
-      <Text style={styles.textStyle}>Select your gender</Text>
+      {/* <Text style={styles.textStyle}>Select your gender</Text>
       <Picker
         selectedValue={selectedValue}
         style={{
@@ -111,7 +123,7 @@ function Register({ navigation }) {
       >
         <Picker.Item label="Male" value="Male" />
         <Picker.Item label="Female" value="Female" />
-      </Picker>
+      </Picker> */}
 
       <Text style={styles.textStyle}>Enter your Email ID </Text>
       <TextInput

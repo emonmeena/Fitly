@@ -1,26 +1,26 @@
 import React from "react";
-import { TextInput, StyleSheet, View } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { StyleSheet, View } from "react-native";
 import { Input, Button, Text, SocialIcon } from "react-native-elements";
-import * as firebase from 'firebase'
-
+import * as firebase from "firebase";
 
 function Login({ navigation }) {
   const [Email, onChangeEmail] = React.useState();
   const [Password, onChangePassword] = React.useState();
-  
-  const SignInUser =()=>{
-    firebase.auth().signInWithEmailAndPassword(Email,Password).then(user => {
-      if(user) navigation.navigate('mainFlow',{i:1})
-    })
-    // console.log(Email)
-  }
 
+  const SignInUser = () => {
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(Email, Password)
+      .then((user) => {
+        if (user) navigation.navigate("mainFlow");
+      });
+    // console.log(Email)
+  };
 
   return (
     <>
       <View style={styles.loginScreen}>
-        <Text h3>Get the  Fitness experience Now Fitly!!</Text>
+        <Text h3>Get the Fitness experience Now Fitly!!</Text>
         <View style={styles.fieldsContainer}>
           <Input
             label="Email"
@@ -35,7 +35,11 @@ function Login({ navigation }) {
             value={Password}
             placeholder="Enter Your Password"
           />
-          <Button title="SignIn Now" buttonStyle={styles.signinButton} onPress={()=> SignInUser()} />
+          <Button
+            title="SignIn Now"
+            buttonStyle={styles.signinButton}
+            onPress={() => SignInUser()}
+          />
           <Button
             title="SignIn with Google"
             type="outline"
