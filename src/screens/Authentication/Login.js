@@ -12,7 +12,7 @@ function Login({ navigation }) {
       .auth()
       .signInWithEmailAndPassword(Email, Password)
       .then((user) => {
-        if (user) navigation.navigate("mainFlow", { i: 1 });
+        if (user) navigation.navigate("mainFlow");
       });
     // console.log(Email)
   };

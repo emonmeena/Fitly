@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
 import {
   Text,
   View,
@@ -7,24 +7,18 @@ import {
   Button,
   TouchableOpacity,
 } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import * as ImagePicker from "expo-image-picker";
 import EditProfile from "./EditProfile";
+import UserDataContext from "../../context/UserDataContext";
 
 const HomeStack = createStackNavigator();
 
 function ProfileStack() {
   return (
     <HomeStack.Navigator>
-      <HomeStack.Screen
-        name="Profile"
-        component={Profile}
-      />
-      <HomeStack.Screen
-        name="EditProfile"
-        component={EditProfile}
-      />
+      <HomeStack.Screen name="Profile" component={Profile} />
+      <HomeStack.Screen name="EditProfile" component={EditProfile} />
     </HomeStack.Navigator>
   );
 }
@@ -32,6 +26,7 @@ function ProfileStack() {
 function Profile({ navigation }) {
   const [selectedImage, setSelectedImage] = React.useState(null);
   const [isedit, onChangeedit] = React.useState(false);
+  const { data } = useContext(UserDataContext);
 
   let openImagePickerAsync = async () => {
     let permissionResult = await ImagePicker.requestCameraRollPermissionsAsync();
@@ -90,7 +85,7 @@ function Profile({ navigation }) {
             borderBottomWidth: StyleSheet.hairlineWidth,
           }}
         >
-          Mayank Meena
+          {data.username}
         </Text>
 
         <Text
@@ -100,7 +95,7 @@ function Profile({ navigation }) {
             borderBottomColor: "red",
           }}
         >
-          mayank16meena@gmail.com
+          {data.email}
         </Text>
 
         <Text
@@ -111,10 +106,10 @@ function Profile({ navigation }) {
             borderBottomColor: "red",
           }}
         >
-          AGE:19
+          AGE:{data.age}
         </Text>
 
-        <Text
+        {/* <Text
           style={{
             fontSize: 15,
 
@@ -123,7 +118,7 @@ function Profile({ navigation }) {
           }}
         >
           Gender: Male
-        </Text>
+        </Text> */}
 
         {/* <Text
           style={{
