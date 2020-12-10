@@ -3,6 +3,7 @@
   "lanType": "ip",
   "dev": true,
   "minify": false,
-  "urlRandomness": null,
-  "https": false
+  "urlRandomness": "74-wfs",
+  "https": false,
+  "scheme": null
 }

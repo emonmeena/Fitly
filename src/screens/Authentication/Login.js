@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import { Input, Button, Text, SocialIcon } from "react-native-elements";
 import * as firebase from "firebase";
+import { db } from "../../context/UserDataContext";
 
 function Login({ navigation }) {
   const [Email, onChangeEmail] = React.useState();
