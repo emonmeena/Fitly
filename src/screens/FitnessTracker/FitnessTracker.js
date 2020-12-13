@@ -9,6 +9,16 @@ const screenWidth = Dimensions.get("window").width;
 
 const FitnessTracker = () => {
   const { state } = useContext(DataContext);
+  const BMIdata = {
+    labels: state.monthsarray,
+    datasets: [
+      {
+        data: state.bmiarray,
+        color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`, // optional
+        strokeWidth: 3, // optional
+      },
+    ],
+  };
   return (
     <View style={styles.FitnessTrackerMainScreen}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -60,18 +70,7 @@ const FitnessTracker = () => {
   );
 };
 
-const BMIdata = {
-  // labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-  labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
-  datasets: [
-    {
-      // data: [20, 45, 28, 80, 99, 43, 23, 65, 34, 56, 78, 100],
-      data: [20, 18, 19, 22.4, 23, 22.4],
-      color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`, // optional
-      strokeWidth: 3, // optional
-    },
-  ],
-};
+
 
 const chartConfig = {
   backgroundGradientFrom: "#1E2923",
