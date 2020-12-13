@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 import { Text, View, StyleSheet, Button, TextInput } from "react-native";
 
-import UserDataContext from "../../context/UserDataContext";
+// import UserDataContext from "../../context/userDataContext";
 
 function EditProfile() {
   const [Name, onChangeName] = React.useState("Mayank Meena");
   const [Age, changeAge] = React.useState("19");
   const [Email, onChangeEmail] = React.useState("mayank16meena@gmail.com");
   const [Password, onChangePassword] = React.useState("mayank321");
-  const {data} = useContext(UserDataContext);
+  // const {data} = useContext(UserDataContext);
   return (
     <View
       style={{

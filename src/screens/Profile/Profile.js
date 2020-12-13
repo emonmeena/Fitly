@@ -10,7 +10,7 @@ import {
 import { createStackNavigator } from "@react-navigation/stack";
 import * as ImagePicker from "expo-image-picker";
 import EditProfile from "./EditProfile";
-import UserDataContext from "../../context/UserDataContext";
+import UserDataContext from "../../context/userDataContext";
 
 const HomeStack = createStackNavigator();
 

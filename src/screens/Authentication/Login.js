@@ -1,21 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import { StyleSheet, View } from "react-native";
 import { Input, Button, Text, SocialIcon } from "react-native-elements";
 import * as firebase from "firebase";
-import { db } from "../../context/UserDataContext";
+import { Context as AuthContext } from "../../context/AuthContext";
 
 function Login({ navigation }) {
-  const [Email, onChangeEmail] = React.useState();
-  const [Password, onChangePassword] = React.useState();
+  const { state, signin } = useContext(AuthContext);
+  const [Email, onChangeEmail] = React.useState("");
+  const [Password, onChangePassword] = React.useState("");
 
   const SignInUser = () => {
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(Email, Password)
-      .then((user) => {
-        if (user) navigation.navigate("mainFlow");
-      });
-    // console.log(Email)
+    // firebase
+    //   .auth()
+    //   .signInWithEmailAndPassword(Email, Password)
+    //   .then((user) => {
+    //     if (user) navigation.navigate("mainFlow");
+    //   });
+    signin({ Email, Password });
   };
 
   return (

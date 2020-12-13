@@ -1,18 +1,19 @@
 import React, { useContext } from "react";
 import { Text, StyleSheet, Dimensions, ScrollView, View } from "react-native";
-import UserDataContext from "../../context/UserDataContext";
+// import UserDataContext from "../../context/userDataContext";
 import { LineChart } from "react-native-chart-kit";
+import { Context as DataContext } from "../../context/AuthContext";
 // import firestore from "@react-native-firebase/firestore";
 
 const screenWidth = Dimensions.get("window").width;
 
 const FitnessTracker = () => {
-  const { data } = useContext(UserDataContext);
+  const { state } = useContext(DataContext);
   return (
     <View style={styles.FitnessTrackerMainScreen}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Text style={styles.normalHeading2}>
-          Hii {data.username}, Here's Your Fitness Progress Report
+          Hii {state.username}, Here's Your Fitness Progress Report
         </Text>
         <Text style={styles.normalHeading}>Your BMI Progress </Text>
         <View style={styles.progressContainer}>
@@ -28,16 +29,16 @@ const FitnessTracker = () => {
         <Text style={styles.normalHeading}>Your Health Stats</Text>
         <View style={styles.healthStatsContainer}>
           <View style={styles.healthStatGreen}>
-            <Text style={styles.numberData}>{data.height} m</Text>
+            <Text style={styles.numberData}>{state.height} m</Text>
             <Text style={styles.healthStatTitle}>Height</Text>
           </View>
           <View style={styles.healthStatBlue}>
-            <Text style={styles.numberData}>{data.weight} Kgs</Text>
+            <Text style={styles.numberData}>{state.weight} Kgs</Text>
             <Text style={styles.healthStatTitle}>Weight</Text>
           </View>
           <View style={styles.healthStatRed}>
             <Text style={styles.numberData}>
-              {(data.weight / Math.pow(data.height, 2)).toFixed(1)}
+              {(state.weight / Math.pow(state.height, 2)).toFixed(1)}
             </Text>
             <Text style={styles.healthStatTitle}>BMI</Text>
           </View>

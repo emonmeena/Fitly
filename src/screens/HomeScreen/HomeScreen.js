@@ -11,7 +11,7 @@ import ConsultDoctor from "../ConsultDoctor/ConsultDoctor";
 
 const Tab = createBottomTabNavigator();
 
-const HomeScreen = (props) => {
+const HomeScreen = () => {
   // console.log(props);
   return (
     <NavigationContainer>

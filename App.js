@@ -4,8 +4,8 @@ import { createStackNavigator } from "react-navigation-stack";
 import HomeScreen from "./src/screens/HomeScreen/HomeScreen";
 import Login from "./src/screens/Authentication/Login";
 import Register from "./src/screens/Authentication/Register";
-import { UserDataProvider } from "./src/context/UserDataContext";
-
+// import { UserDataProvider } from "./src/context/UserDataContext";
+import { Provider as AuthProvider } from "./src/context/AuthContext";
 
 const switchNavigator = createSwitchNavigator({
   loginFlow: createStackNavigator({
@@ -19,8 +19,8 @@ const App = createAppContainer(switchNavigator);
 
 export default () => {
   return (
-    <UserDataProvider>
+    <AuthProvider>
       <App />
-    </UserDataProvider>
+    </AuthProvider>
   );
 };

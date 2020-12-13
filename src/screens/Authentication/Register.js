@@ -8,7 +8,7 @@ import {
   // Picker,
 } from "react-native";
 import * as firebase from "firebase";
-import { db } from "../../context/UserDataContext";
+import { db } from "../../context/userDataContext";
 
 function Register({ navigation }) {
   const [Name, onChangeName] = React.useState();
