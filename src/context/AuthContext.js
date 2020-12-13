@@ -5,7 +5,6 @@ const authReducer = (state, action) => {
     switch (action.type) {
         case "editprofile":
             return {...state, username: action.NewUsername}
-            break;
     
         default:
             return action.userData;
@@ -53,5 +52,5 @@ const signout = (dispatch) => {
 export const { Provider, Context } = createDataContext(
   authReducer,
   { signin, signout, signup, editprofile },
-  { username: "", age: 1, email: "", height: 1, weight: 1 }
+  { username: "", age: 1, email: "", height: 1, weight: 1, monthsarray:[], bmiarray:[] }
 );
