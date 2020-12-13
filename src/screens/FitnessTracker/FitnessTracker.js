@@ -13,7 +13,7 @@ const FitnessTracker = () => {
     <View style={styles.FitnessTrackerMainScreen}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Text style={styles.normalHeading2}>
-          Hii {state.username}, Here's Your Fitness Progress Report
+          Hii {state.username}, here's Your Fitness Progress Report
         </Text>
         <Text style={styles.normalHeading}>Your BMI Progress </Text>
         <View style={styles.progressContainer}>

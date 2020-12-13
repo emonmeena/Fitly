@@ -2,13 +2,14 @@ import createDataContext from "./createDataContext";
 import { db } from "../firebase/firebaseConfig";
 
 const authReducer = (state, action) => {
-  //   switch (action.type) {
-  //     case "add_error":
-  //       return { ...state, errorMessage: action.payload };
-  //     default:
-  //       return state;
-  //   }
-  return action.userData;
+    switch (action.type) {
+        case "editprofile":
+            return {...state, username: action.NewUsername}
+            break;
+    
+        default:
+            return action.userData;
+    }
 };
 
 const signup = (dispatch) => {
@@ -33,6 +34,16 @@ const signin = (dispatch) => {
   };
 };
 
+const editprofile = (dispatch) => {
+  return async ({ Email, NewUsername }) => {
+    await db
+      .collection("UsersData")
+      .doc(Email)
+      .set({ username: NewUsername }, { merge: true });
+    await dispatch({type: "editprofile", NewUsername});
+  };
+};
+
 const signout = (dispatch) => {
   return () => {
     // somehow sign out!!!
@@ -41,6 +52,6 @@ const signout = (dispatch) => {
 
 export const { Provider, Context } = createDataContext(
   authReducer,
-  { signin, signout, signup },
+  { signin, signout, signup, editprofile },
   { username: "", age: 1, email: "", height: 1, weight: 1 }
 );

@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 import { Text, View, StyleSheet, Button, TextInput } from "react-native";
+import { Context as UserDataContext } from "../../context/AuthContext";
 
-// import UserDataContext from "../../context/userDataContext";
-
-function EditProfile() {
-  const [Name, onChangeName] = React.useState("Mayank Meena");
+function EditProfile({ navigation }) {
+  const { state, editprofile } = useContext(UserDataContext);
+  const [Name, onChangeName] = React.useState(state.username);
   const [Age, changeAge] = React.useState("19");
   const [Email, onChangeEmail] = React.useState("mayank16meena@gmail.com");
   const [Password, onChangePassword] = React.useState("mayank321");
-  // const {data} = useContext(UserDataContext);
+
   return (
     <View
       style={{
@@ -33,14 +33,14 @@ function EditProfile() {
           width: "60%",
         }}
         onChangeText={(text) => onChangeName(text)}
-        value={data.username}
+        value={Name}
       />
 
       {/* <Text style={{ fontSize: 25, color: "white", marginTop: 20 }}>
         {" "}
         Edit your Age
       </Text> */}
-{/* 
+      {/* 
       <TextInput
         style={{
           padding: 5,
@@ -52,7 +52,7 @@ function EditProfile() {
           marginBottom: 10,
         }}
         onChangeText={(text) => changeAge(text)}
-        value={data.age}
+        value={state.age}
       /> */}
       {/* <Text style={{ fontSize: 25, color: "white", marginTop: 20 }}>
         {" "}
@@ -92,7 +92,10 @@ function EditProfile() {
       /> */}
       <Button
         color="black"
-        // onPress={''}
+        onPress={() => {
+          editprofile({ Email: state.email, NewUsername: Name });
+          navigation.navigate("Profile");
+        }}
         title="Save"
       />
     </View>
