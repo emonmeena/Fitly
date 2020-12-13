@@ -10,12 +10,12 @@ function Login({ navigation }) {
   const [Password, onChangePassword] = React.useState("");
 
   const SignInUser = () => {
-    // firebase
-    //   .auth()
-    //   .signInWithEmailAndPassword(Email, Password)
-    //   .then((user) => {
-    //     if (user) navigation.navigate("mainFlow");
-    //   });
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(Email, Password)
+      .then((user) => {
+        if (user) navigation.navigate("mainFlow");
+      });
     signin({ Email, Password });
   };
 

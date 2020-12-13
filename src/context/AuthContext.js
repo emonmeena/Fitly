@@ -1,12 +1,14 @@
 import createDataContext from "./createDataContext";
+import { db } from "../firebase/firebaseConfig";
 
 const authReducer = (state, action) => {
-  switch (action.type) {
-    case "add_error":
-      return { ...state, errorMessage: action.payload };
-    default:
-      return state;
-  }
+  //   switch (action.type) {
+  //     case "add_error":
+  //       return { ...state, errorMessage: action.payload };
+  //     default:
+  //       return state;
+  //   }
+  return action.userData;
 };
 
 const signup = (dispatch) => {
@@ -14,12 +16,20 @@ const signup = (dispatch) => {
 };
 
 const signin = (dispatch) => {
-  return ({ Email, Password }) => {
-    console.log(dispatch);
-    console.log(Email +  " "+ Password)
-    // Try to signin
-    // Handle success by updating state
-    // Handle failure by showing error message (somehow)
+  return async ({ Email, Password }) => {
+    await db
+      .collection("UsersData")
+      .doc(Email)
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          var userData = doc.data();
+          dispatch({ userData: userData });
+        } else console.log("No user Exists");
+      })
+      .catch((err) => {
+        console.log("Error getting the doc: ", err);
+      });
   };
 };
 
@@ -32,5 +42,5 @@ const signout = (dispatch) => {
 export const { Provider, Context } = createDataContext(
   authReducer,
   { signin, signout, signup },
-  { isSignedIn: false, errorMessage: "" }
+  { username: "", age: 1, email: "", height: 1, weight: 1 }
 );

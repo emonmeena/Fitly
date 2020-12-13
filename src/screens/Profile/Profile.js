@@ -1,4 +1,4 @@
-import React, { Component, useContext } from "react";
+import React, {useContext } from "react";
 import {
   Text,
   View,
@@ -10,7 +10,7 @@ import {
 import { createStackNavigator } from "@react-navigation/stack";
 import * as ImagePicker from "expo-image-picker";
 import EditProfile from "./EditProfile";
-import UserDataContext from "../../context/userDataContext";
+import {Context as AuthContext} from "../../context/AuthContext";
 
 const HomeStack = createStackNavigator();
 
@@ -24,9 +24,9 @@ function ProfileStack() {
 }
 
 function Profile({ navigation }) {
+  const { state } = useContext(AuthContext);
   const [selectedImage, setSelectedImage] = React.useState(null);
   const [isedit, onChangeedit] = React.useState(false);
-  const { data } = useContext(UserDataContext);
 
   let openImagePickerAsync = async () => {
     let permissionResult = await ImagePicker.requestCameraRollPermissionsAsync();
@@ -85,7 +85,7 @@ function Profile({ navigation }) {
             borderBottomWidth: StyleSheet.hairlineWidth,
           }}
         >
-          {data.username}
+          {state.username}
         </Text>
 
         <Text
@@ -95,7 +95,7 @@ function Profile({ navigation }) {
             borderBottomColor: "red",
           }}
         >
-          {data.email}
+          {state.email}
         </Text>
 
         <Text
@@ -106,7 +106,7 @@ function Profile({ navigation }) {
             borderBottomColor: "red",
           }}
         >
-          AGE:{data.age}
+          AGE:{state.age}
         </Text>
 
         {/* <Text

@@ -8,7 +8,7 @@ import {
   // Picker,
 } from "react-native";
 import * as firebase from "firebase";
-import { db } from "../../context/userDataContext";
+import { db } from "../../firebase/firebaseConfig";
 
 function Register({ navigation }) {
   const [Name, onChangeName] = React.useState();
@@ -19,10 +19,11 @@ function Register({ navigation }) {
   const [Weight, changeWeight] = React.useState();
   const [selectedValue, setSelectedValue] = React.useState("Male");
 
-  const registerUser = () => {
+  const registerUser = async () => {
     try {
-      firebase.auth().createUserWithEmailAndPassword(Email, Password);
-      db.collection("UsersData")
+      await firebase.auth().createUserWithEmailAndPassword(Email, Password);
+      await db
+        .collection("UsersData")
         .doc(Email)
         .set({
           username: Name,
