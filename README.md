@@ -1,4 +1,5 @@
 # Fitly
+[Documentation](https://mayankmeena.netlify.app/files/FITLY_FinalReport.pdf)
 ## Prerequisite
 > Nodejs, npm and Git
 ## Instructions to get you started
